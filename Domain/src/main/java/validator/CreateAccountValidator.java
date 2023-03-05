@@ -3,11 +3,11 @@ package validator;
 import model.Account;
 import model.Customer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CreateAccountValidator {
 
+    //TODO: read from csv file
     private List<Customer> customers = List.of(new Customer("KHALEDKAR"), new Customer("YOUSEFSUL"), new Customer("TAYSEERSAB"));
 
     boolean validate(Account account) {
