@@ -5,7 +5,6 @@ import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import model.Account;
 import model.Status;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import usecases.CreateAccountUseCase;
@@ -19,11 +18,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public class AccountsController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
+    private final CreateAccountUseCase createAccountUseCase;
 
     private final AccountRepositoryMySQL accountRepository;
     private final AccountMapper accountMapper;
 
-    public AccountsController(AccountRepositoryMySQL accountRepository, AccountMapper accountMapper) {
+    public AccountsController(CreateAccountUseCase createAccountUseCase, AccountRepositoryMySQL accountRepository, AccountMapper accountMapper) {
+        this.createAccountUseCase = createAccountUseCase;
         this.accountRepository = accountRepository;
 
         this.accountMapper = accountMapper;
@@ -46,6 +47,6 @@ public class AccountsController {
                 .availableBalance(BigDecimal.ONE)
                 .customerId("khaled")
                 .build();
-        new CreateAccountUseCase(accountRepository).execute(accountMapper.map(accountEntity));
+        createAccountUseCase.execute(accountMapper.map(accountEntity));
     }
 }
