@@ -18,7 +18,7 @@ public class InactivateAccountUseCase {
         Status status = account.getStatus();
         if (Objects.isNull(status))
             throw new NullPointerException("Invalid Account, status is null");
-        return accountRepository.inActive(account);
+        return accountRepository.inActive(account.getId());
 
     }
 }
