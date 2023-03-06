@@ -5,7 +5,6 @@ import com.progressoft.application.entity.AccountMapper;
 import model.Account;
 import model.Status;
 import org.springframework.stereotype.Repository;
-import usecases.CreateAccountUseCase;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +16,7 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
 
     private final AccountMapper mapper;
 
-    public AccountRepositoryMySQL(AccountRepository accountRepository,AccountMapper mapper) {
+    public AccountRepositoryMySQL(AccountRepository accountRepository, AccountMapper mapper) {
         this.accountRepository = accountRepository;
         this.mapper = mapper;
     }
@@ -28,27 +27,31 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
     }
 
     @Override
-    public void deActive(Account account) {
-        Optional<AccountEntity> byId = accountRepository.findById(account.getId());
-        byId.ifPresent(account1 -> {
-            account1.setStatus(Status.Inactive);
-            accountRepository.save(mapper.map(account));
-        });
+    public Status deActive(String id) {
+        Account account = findByID(id);
+        account.setStatus(Status.Inactive);
+        save(account);
+        return account.getStatus();
     }
 
     @Override
-    public void inActive(Account account) {
-        Optional<AccountEntity> byId = accountRepository.findById(account.getId());
-        byId.ifPresent(account1 -> {
-            account1.setStatus(Status.Active);
-            accountRepository.save(mapper.map(account));
-        });
+    public Status inActive(String id) {
+        Account account = findByID(id);
+        account.setStatus(Status.Active);
+        save(account);
+        return account.getStatus();
     }
 
     @Override
     public List<Account> findAll() {
         List<AccountEntity> all = accountRepository.findAll();
         return all.stream().map(mapper::map).collect(Collectors.toList());
+    }
+
+    @Override
+    public Account findByID(String id) {
+        Optional<AccountEntity> accountEntity = accountRepository.findById(id);
+        return accountEntity.map(mapper::map).orElse(null);
     }
 
 }

@@ -2,15 +2,27 @@ package usecases;
 
 import lombok.AllArgsConstructor;
 import model.Account;
+import model.Status;
 import repository.AccountRepository;
+
+import java.util.Objects;
 
 @AllArgsConstructor
 public class DeactivateAccountUseCase {
 
     private AccountRepository accountRepository;
 
-    public void execute(Account account) {
-        accountRepository.deActive(account);
+    public Status execute(Account account) {
+        if (Objects.isNull(account))
+            throw new NullPointerException("Invalid Account, Account is null");
+        Status status = account.getStatus();
+        if (Objects.isNull(status))
+            throw new NullPointerException("Invalid Account, status is null");
+        if (status.equals(Status.Active))
+             accountRepository.deActive(account.getId());
+
+        return account.getStatus();
+
     }
 
 
