@@ -10,11 +10,9 @@ public class CreateAccountUseCase {
 
     private final AccountRepository accountRepository;
 
-
     public void execute(Account account) {
         if (!CreateAccountValidator.validate(account))
-            throw new IllegalArgumentException("Not Found The Customer");
+            throw new IllegalArgumentException("Customer not found");
         accountRepository.save(account);
-
     }
 }
