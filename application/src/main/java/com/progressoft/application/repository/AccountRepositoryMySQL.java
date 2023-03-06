@@ -5,7 +5,6 @@ import com.progressoft.application.entity.AccountMapper;
 import model.Account;
 import model.Status;
 import org.springframework.stereotype.Repository;
-import usecases.CreateAccountUseCase;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +16,7 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
 
     private final AccountMapper mapper;
 
-    public AccountRepositoryMySQL(AccountRepository accountRepository,AccountMapper mapper) {
+    public AccountRepositoryMySQL(AccountRepository accountRepository, AccountMapper mapper) {
         this.accountRepository = accountRepository;
         this.mapper = mapper;
     }
@@ -28,21 +27,25 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
     }
 
     @Override
-    public void deActive(Account account) {
+    public Status deActive(Account account) {
         Optional<AccountEntity> byId = accountRepository.findById(account.getId());
         byId.ifPresent(account1 -> {
             account1.setStatus(Status.Inactive);
             accountRepository.save(mapper.map(account));
+
         });
+        return account.getStatus();
     }
 
     @Override
-    public void inActive(Account account) {
+    public Status inActive(Account account) {
         Optional<AccountEntity> byId = accountRepository.findById(account.getId());
         byId.ifPresent(account1 -> {
             account1.setStatus(Status.Active);
             accountRepository.save(mapper.map(account));
         });
+        //TODO: this is wrong
+        return byId.get().getStatus();
     }
 
     @Override
