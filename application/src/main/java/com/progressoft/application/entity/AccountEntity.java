@@ -1,13 +1,7 @@
 package com.progressoft.application.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import model.Status;
 
 import java.math.BigDecimal;
@@ -17,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder(access = AccessLevel.PUBLIC)
 @Entity
 public class AccountEntity {
     @Id
@@ -26,6 +20,7 @@ public class AccountEntity {
     private String customerId;
     private long accountNumber;
     private BigDecimal availableBalance;
+    @Enumerated(EnumType.STRING)
     private Status status;
     private LocalDateTime creationDate;
 

@@ -9,7 +9,7 @@ public class InactivateAccountUseCase {
 
     private AccountRepository accountRepository;
 
-    void execute(Account account) {
+    public void execute(Account account) {
         accountRepository.inActive(account);
     }
 }

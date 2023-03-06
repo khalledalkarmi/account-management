@@ -8,9 +8,9 @@ import java.util.List;
 public class CreateAccountValidator {
 
     //TODO: read from csv file
-    private List<Customer> customers = List.of(new Customer("KHALEDKAR"), new Customer("YOUSEFSUL"), new Customer("TAYSEERSAB"));
+    private static List<Customer> customers = List.of(new Customer("KHALEDKAR"), new Customer("YOUSEFSUL"), new Customer("TAYSEERSAB"));
 
-    boolean validate(Account account) {
+    public static boolean validate(Account account) {
         for (Customer customer : customers) {
             if (customer.getName().equals(account.getId()))
                 return false;
