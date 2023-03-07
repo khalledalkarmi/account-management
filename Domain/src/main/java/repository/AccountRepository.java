@@ -9,5 +9,5 @@ public interface AccountRepository {
 
     List<Account> findAll();
 
-    Account findByID(String id);
+    Account findByAccountNumber(String id);
 }

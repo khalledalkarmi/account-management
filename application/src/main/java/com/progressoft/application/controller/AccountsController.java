@@ -2,6 +2,8 @@ package com.progressoft.application.controller;
 
 import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
+import com.progressoft.application.resources.AccountRequest;
+import com.progressoft.application.resources.AccountResponse;
 import lombok.extern.slf4j.Slf4j;
 import model.Account;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import usecases.DeactivateAccountUseCase;
 import usecases.InactivateAccountUseCase;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -50,11 +53,8 @@ public class AccountsController {
     }
 
     @GetMapping
-    public List<Account> getAllAccount() {
-        List<Account> all = accountRepository.findAll();
-        all.forEach(System.out::println);
-
-        return all;
+    public List<AccountResponse> getAllAccount() {
+        return accountRepository.findAll().stream().map(accountMapper::mapEntity).collect(Collectors.toList());
     }
 
     @PostMapping
@@ -67,15 +67,15 @@ public class AccountsController {
 
     @PostMapping("{accountNumber}/deactivate")
     public void deactivate(@PathVariable String accountNumber) {
-        Account byID = accountRepository.findByID(accountNumber);
-        log.info("Deactivate Account number {}", accountMapper);
-        deactivateAccountUseCase.execute(byID);
+        Account account = accountRepository.findByAccountNumber(accountNumber);
+        log.info("Deactivate Account number {}", account);
+        deactivateAccountUseCase.execute(account);
     }
 
     @PostMapping("{accountNumber}/activate")
     public void activate(@PathVariable String accountNumber) {
-        Account byID = accountRepository.findByID(accountNumber);
-        log.info("Inactivate Account number {}", accountMapper);
-        inactivateAccountUseCase.execute(byID);
+        Account account = accountRepository.findByAccountNumber(accountNumber);
+        log.info("Inactivate Account number {}", account.getAccountNumber());
+        inactivateAccountUseCase.execute(account);
     }
 }

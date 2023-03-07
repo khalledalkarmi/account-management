@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="add todos">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/test/java/validator/CreateAccountValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/test/java/validator/CreateAccountValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/resources/AccountResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/resources/AccountRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/JpaAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/JpaAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.progressoft.application.resources" />
       <recent name="model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -100,7 +95,7 @@
       <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="PATTERN" value="com.progressoft.application.resources.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +111,7 @@
       <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="PATTERN" value="com.progressoft.application.resources.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -201,6 +196,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="" />

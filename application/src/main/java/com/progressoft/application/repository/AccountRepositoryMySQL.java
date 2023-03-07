@@ -3,7 +3,6 @@ package com.progressoft.application.repository;
 import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
 import model.Account;
-import model.Status;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
     }
 
     @Override
-    public Account findByID(String id) {
+    public Account findByAccountNumber(String id) {
         Optional<AccountEntity> accountEntity = jpaAccountRepository.findByAccountNumber(Long.parseLong(id));
         return accountEntity.map(mapper::map).orElse(null);
     }

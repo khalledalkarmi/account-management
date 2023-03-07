@@ -1,4 +1,4 @@
-package com.progressoft.application.controller;
+package com.progressoft.application.resources;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

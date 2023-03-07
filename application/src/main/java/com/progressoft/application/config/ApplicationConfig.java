@@ -1,6 +1,5 @@
 package com.progressoft.application.config;
 
-import com.progressoft.application.repository.JpaAccountRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import repository.AccountRepository;
