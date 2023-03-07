@@ -1,6 +1,8 @@
 package usecases;
 
 import lombok.AllArgsConstructor;
+import model.Account;
+import model.Status;
 import repository.AccountRepository;
 
 @AllArgsConstructor
@@ -10,8 +12,9 @@ public class DeactivateAccountUseCase {
 
     private AccountRepository accountRepository;
 
-    public void execute(String id) {
-        accountRepository.deActive(id);
+    public void execute(Account account) {
+        account.setStatus(Status.Inactive);
+        accountRepository.save(account);
     }
 
 

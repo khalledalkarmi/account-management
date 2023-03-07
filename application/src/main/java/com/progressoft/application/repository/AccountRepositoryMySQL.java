@@ -26,22 +26,6 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
         jpaAccountRepository.save(mapper.map(account));
     }
 
-    @Override
-    public Status deActive(String id) {
-        System.out.println("Account id: " + id);
-        Account account = findByID(id);
-        account.setStatus(Status.Inactive);
-        save(account);
-        return account.getStatus();
-    }
-
-    @Override
-    public Status inActive(String id) {
-        Account account = findByID(id);
-        account.setStatus(Status.Active);
-        save(account);
-        return account.getStatus();
-    }
 
     @Override
     public List<Account> findAll() {

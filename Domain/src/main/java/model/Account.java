@@ -1,19 +1,17 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder(access = AccessLevel.PUBLIC)
 @Data
 public class Account {
-    private String id;
+    long id;
+    private String customerId;
     private long accountNumber;
     private BigDecimal availableBalance;
     private Status status;

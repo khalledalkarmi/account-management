@@ -6,13 +6,11 @@ import com.progressoft.application.repository.AccountRepositoryMySQL;
 import lombok.extern.slf4j.Slf4j;
 import model.Account;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 @RestController
@@ -51,14 +49,14 @@ public class AccountsController {
     }
 
     @GetMapping
-    public List<Account> sayHello() {
+    public List<Account> getAllAccount() {
         List<Account> all = accountRepository.findAll();
         all.forEach(System.out::println);
 
         return all;
     }
 
-    @PostMapping("/add")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody AccountEntity accountEntity) {
         Account map = accountMapper.map(accountEntity);
@@ -66,10 +64,10 @@ public class AccountsController {
         createAccountUseCase.execute(map);
     }
 
-    @GetMapping("{accountNumber}/deactivate")
-    public ResponseEntity<Void> deactivate(@PathVariable String id) {
-        System.out.println(id);
-        deactivateAccountUseCase.execute(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PostMapping("{accountNumber}/deactivate")
+    public void deactivate(@RequestBody Account account) {
+        //TODO: this should accept body request
+        log.info("Deactivate Account number {}", accountMapper);
+        deactivateAccountUseCase.execute(account);
     }
 }

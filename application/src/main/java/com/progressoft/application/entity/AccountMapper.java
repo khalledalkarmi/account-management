@@ -7,19 +7,25 @@ import org.springframework.stereotype.Service;
 public class AccountMapper {
     public AccountEntity map(Account account) {
         return new AccountEntity.AccountEntityBuilder()
-                .customerId(account.getId())
+                .id(account.getId())
+                .customerId(account.getCustomerId())
                 .accountNumber(account.getAccountNumber())
                 .status(account.getStatus())
                 .creationDate(account.getCreationDate())
                 .availableBalance(account.getAvailableBalance())
                 .build();
     }
+
     public Account map(AccountEntity accountEntity) {
-        return new Account(accountEntity.getCustomerId(),
-                accountEntity.getAccountNumber(),
-                accountEntity.getAvailableBalance(),
-                accountEntity.getStatus(),
-                accountEntity.getCreationDate());
+        return Account.builder()
+                .id(accountEntity.getId())
+                .customerId(accountEntity.getCustomerId())
+                .accountNumber(accountEntity.getAccountNumber())
+                .availableBalance(accountEntity.getAvailableBalance())
+                .status(accountEntity.getStatus())
+                .creationDate(accountEntity.getCreationDate())
+                .build();
+
     }
 
 }
