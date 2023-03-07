@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="add test case for CreateAccountValidator">
-      <change afterPath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/src/test/java/usecases/DeactivateAccountUseCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/src/test/java/usecases/InactivateAccountUseCaseTest.java" afterDir="false" />
+    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/DeactivateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/DeactivateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/InactivateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/InactivateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,16 +21,10 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -67,8 +56,6 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "jdk.selected.JAVA_MODULE": "corretto-17",
     "last_opened_file_path": "/home/khaled/gitlab/account-management",
     "node.js.detected.package.eslint": "true",
@@ -88,13 +75,6 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="model" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="usecases" />
-      <recent name="validator" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="usecases" />
     </key>
@@ -106,83 +86,81 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.InactivateAccountUseCaseTest.givenInvalidAccount_whenExecute_thenExceptionIsThrown">
-    <configuration name="CreateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
+  <component name="RunManager" selected="JUnit.AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode">
+    <configuration name="AccountsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecases.*" />
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecases" />
-      <option name="MAIN_CLASS_NAME" value="usecases.CreateAccountUseCaseTest" />
-      <option name="METHOD_NAME" value="givenValidAccount_whenExecute_thenExpectedResult" />
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountsControllerTest.getAllAccounts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="METHOD_NAME" value="getAllAccounts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeactivateAccountUseCaseTest.givenInvalidAccount_whenExecute_thenExceptionIsThrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
+    <configuration name="AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecases.*" />
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecases" />
-      <option name="MAIN_CLASS_NAME" value="usecases.DeactivateAccountUseCaseTest" />
-      <option name="METHOD_NAME" value="givenInvalidAccount_whenExecute_thenExceptionIsThrown" />
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="METHOD_NAME" value="givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeactivateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
+    <configuration name="AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecases.*" />
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecases" />
-      <option name="MAIN_CLASS_NAME" value="usecases.DeactivateAccountUseCaseTest" />
-      <option name="METHOD_NAME" value="givenValidAccount_whenExecute_thenExpectedResult" />
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="METHOD_NAME" value="givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InactivateAccountUseCaseTest.givenInvalidAccount_whenExecute_thenExceptionIsThrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateAccountValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Domain" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecases.*" />
+          <option name="PATTERN" value="validator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecases" />
-      <option name="MAIN_CLASS_NAME" value="usecases.InactivateAccountUseCaseTest" />
-      <option name="METHOD_NAME" value="givenInvalidAccount_whenExecute_thenExceptionIsThrown" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InactivateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="usecases.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="usecases" />
-      <option name="MAIN_CLASS_NAME" value="usecases.InactivateAccountUseCaseTest" />
-      <option name="METHOD_NAME" value="givenValidAccount_whenExecute_thenExpectedResult" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="validator" />
+      <option name="MAIN_CLASS_NAME" value="validator.CreateAccountValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -203,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InactivateAccountUseCaseTest.givenInvalidAccount_whenExecute_thenExceptionIsThrown" />
-        <item itemvalue="JUnit.InactivateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" />
-        <item itemvalue="JUnit.DeactivateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" />
-        <item itemvalue="JUnit.DeactivateAccountUseCaseTest.givenInvalidAccount_whenExecute_thenExceptionIsThrown" />
-        <item itemvalue="JUnit.CreateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" />
+        <item itemvalue="JUnit.AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" />
+        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
+        <item itemvalue="JUnit.AccountsControllerTest.getAllAccounts" />
+        <item itemvalue="JUnit.AccountsControllerTest" />
+        <item itemvalue="JUnit.CreateAccountValidatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -222,16 +200,8 @@
       <workItem from="1678022381978" duration="1913000" />
       <workItem from="1678024384914" duration="1448000" />
       <workItem from="1678081503921" duration="2110000" />
-      <workItem from="1678089337831" duration="4853000" />
+      <workItem from="1678167382110" duration="1705000" />
     </task>
-    <task id="LOCAL-00001" summary="add test case for CreateAccountValidator">
-      <created>1678090541479</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1678090541479</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +220,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add test case for CreateAccountValidator" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test case for CreateAccountValidator" />
   </component>
 </project>

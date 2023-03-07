@@ -8,9 +8,11 @@ import java.util.List;
 public interface AccountRepository {
     void save(Account account);
 
-    Status deActive(Account account);
+    Status deActive(String id);
 
-    Status inActive(Account account);
+    Status inActive(String id);
 
     List<Account> findAll();
+
+    Account findByID(String id);
 }

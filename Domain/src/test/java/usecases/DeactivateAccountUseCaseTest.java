@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -43,8 +44,8 @@ class DeactivateAccountUseCaseTest {
                 .accountNumber(123456L)
                 .build();
 
-        when(accountRepository.deActive(any(Account.class))).thenReturn(Status.Inactive);
+        when(accountRepository.deActive(anyString())).thenReturn(Status.Inactive);
         System.out.println(deactivateAccountUseCase.execute(account));
-        verify(accountRepository).deActive(account);
+        verify(accountRepository).deActive("");
     }
 }
