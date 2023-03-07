@@ -12,22 +12,23 @@ import java.util.stream.Collectors;
 
 @Repository
 public class AccountRepositoryMySQL implements repository.AccountRepository {
-    private final AccountRepository accountRepository;
+    private final JpaAccountRepository jpaAccountRepository;
 
     private final AccountMapper mapper;
 
-    public AccountRepositoryMySQL(AccountRepository accountRepository, AccountMapper mapper) {
-        this.accountRepository = accountRepository;
+    public AccountRepositoryMySQL(JpaAccountRepository jpaAccountRepository, AccountMapper mapper) {
+        this.jpaAccountRepository = jpaAccountRepository;
         this.mapper = mapper;
     }
 
     @Override
     public void save(Account account) {
-        accountRepository.save(mapper.map(account));
+        jpaAccountRepository.save(mapper.map(account));
     }
 
     @Override
     public Status deActive(String id) {
+        System.out.println("Account id: " + id);
         Account account = findByID(id);
         account.setStatus(Status.Inactive);
         save(account);
@@ -44,14 +45,13 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
 
     @Override
     public List<Account> findAll() {
-        List<AccountEntity> all = accountRepository.findAll();
+        List<AccountEntity> all = jpaAccountRepository.findAll();
         return all.stream().map(mapper::map).collect(Collectors.toList());
     }
 
     @Override
     public Account findByID(String id) {
-        Optional<AccountEntity> accountEntity = accountRepository.findByCustomerId(id);
+        Optional<AccountEntity> accountEntity = jpaAccountRepository.findByCustomerId(id);
         return accountEntity.map(mapper::map).orElse(null);
     }
-
 }

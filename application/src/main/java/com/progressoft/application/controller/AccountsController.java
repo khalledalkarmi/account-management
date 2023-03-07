@@ -3,23 +3,36 @@ package com.progressoft.application.controller;
 import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
+import lombok.extern.slf4j.Slf4j;
 import model.Account;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Slf4j
 @RestController
+@RequestMapping("/api/v1/accounts")
 public class AccountsController {
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+
+    //TODO Controllers or REST endpoints should not expose Entities or Domain models, Create resources/requests for them
+
+    //TODO Use proper REST Conventions for URLs and HTTP Methods
+
+    //TODO All sysout statements should use Logger instead
+
+    // api/v1/accounts/createNewAccount X bad practice
+    // /add X bad practice
+
+    // /api/v1/accounts Post creates a new account
+    // /api/v1/accounts?status=ACTIVE Get lists all accounts
+    // /api/v1/accounts/activeAccounts Get lists all accounts
+    // /api/v1/accounts/{customerId}/{accountNumber}
+
     private final CreateAccountUseCase createAccountUseCase;
 
     private final DeactivateAccountUseCase deactivateAccountUseCase;
@@ -27,15 +40,17 @@ public class AccountsController {
     private final AccountRepositoryMySQL accountRepository;
     private final AccountMapper accountMapper;
 
-    public AccountsController(CreateAccountUseCase createAccountUseCase, DeactivateAccountUseCase deactivateAccountUseCase, AccountRepositoryMySQL accountRepository, AccountMapper accountMapper) {
+    public AccountsController(CreateAccountUseCase createAccountUseCase,
+                              DeactivateAccountUseCase deactivateAccountUseCase,
+                              AccountRepositoryMySQL accountRepository,
+                              AccountMapper accountMapper) {
         this.createAccountUseCase = createAccountUseCase;
         this.deactivateAccountUseCase = deactivateAccountUseCase;
         this.accountRepository = accountRepository;
-
         this.accountMapper = accountMapper;
     }
 
-    @GetMapping("/accounts")
+    @GetMapping
     public List<Account> sayHello() {
         List<Account> all = accountRepository.findAll();
         all.forEach(System.out::println);
@@ -44,16 +59,17 @@ public class AccountsController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Void> add(@RequestBody AccountEntity accountEntity) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public void add(@RequestBody AccountEntity accountEntity) {
         Account map = accountMapper.map(accountEntity);
-        System.out.println(accountEntity);
+        log.info("Received create account request {}", accountEntity);
         createAccountUseCase.execute(map);
-        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping("/deactivate")
-    public ResponseEntity<Void> deactivate(@RequestBody AccountEntity accountEntity) {
-        deactivateAccountUseCase.execute(accountMapper.map(accountEntity));
+    @GetMapping("{accountNumber}/deactivate")
+    public ResponseEntity<Void> deactivate(@PathVariable String id) {
+        System.out.println(id);
+        deactivateAccountUseCase.execute(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

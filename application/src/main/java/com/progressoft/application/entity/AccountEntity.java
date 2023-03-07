@@ -22,7 +22,7 @@ public class AccountEntity {
     private BigDecimal availableBalance;
     @Enumerated(EnumType.STRING)
     private Status status;
-    private LocalDateTime creationDate = LocalDateTime.now();
+    private LocalDateTime creationDate;
 
 }
 
