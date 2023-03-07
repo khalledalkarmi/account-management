@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,6 +132,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccountsControllerTest.givenValidAccountID_whenDeActive_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="METHOD_NAME" value="givenValidAccountID_whenDeActive_thenExpectedStatusCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
@@ -146,21 +160,6 @@
       <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
       <option name="METHOD_NAME" value="givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateAccountValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="validator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="validator" />
-      <option name="MAIN_CLASS_NAME" value="validator.CreateAccountValidatorTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,9 +182,9 @@
       <list>
         <item itemvalue="JUnit.AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" />
         <item itemvalue="JUnit.AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
+        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccountID_whenDeActive_thenExpectedStatusCode" />
         <item itemvalue="JUnit.AccountsControllerTest.getAllAccounts" />
         <item itemvalue="JUnit.AccountsControllerTest" />
-        <item itemvalue="JUnit.CreateAccountValidatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +199,7 @@
       <workItem from="1678022381978" duration="1913000" />
       <workItem from="1678024384914" duration="1448000" />
       <workItem from="1678081503921" duration="2110000" />
-      <workItem from="1678167382110" duration="1705000" />
+      <workItem from="1678167382110" duration="2913000" />
     </task>
     <servers />
   </component>

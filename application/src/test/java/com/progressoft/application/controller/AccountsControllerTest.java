@@ -102,8 +102,8 @@ class AccountsControllerTest {
                 .accountNumber(123456L)
                 .build();
 
-//        doNothing().when(accountRepository).save(account);
-//        doNothing().when(createAccountUseCase).execute(account);
+        doNothing().when(accountRepository).save(account);
+        doNothing().when(createAccountUseCase).execute(account);
 
         String json = "{\"id\":\"KHALEDKAR\",\"creationDate\":\"" + now + "\",\"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
 
