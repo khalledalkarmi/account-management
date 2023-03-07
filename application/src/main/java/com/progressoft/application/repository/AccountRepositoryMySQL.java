@@ -50,7 +50,7 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
 
     @Override
     public Account findByID(String id) {
-        Optional<AccountEntity> accountEntity = accountRepository.findById(id);
+        Optional<AccountEntity> accountEntity = accountRepository.findByCustomerId(id);
         return accountEntity.map(mapper::map).orElse(null);
     }
 

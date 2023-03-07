@@ -19,7 +19,7 @@ public class DeactivateAccountUseCase {
         if (Objects.isNull(status))
             throw new NullPointerException("Invalid Account, status is null");
         if (status.equals(Status.Active))
-             accountRepository.deActive(account.getId());
+            accountRepository.deActive(account.getId());
 
         return account.getStatus();
 

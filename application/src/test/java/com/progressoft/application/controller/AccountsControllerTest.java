@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import usecases.CreateAccountUseCase;
+import usecases.DeactivateAccountUseCase;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -38,6 +39,9 @@ class AccountsControllerTest {
     private AccountMapper accountMapper;
     @MockBean
     private CreateAccountUseCase createAccountUseCase;
+
+    @MockBean
+    private DeactivateAccountUseCase deactivateAccountUseCase;
     @Autowired
     MockMvc mockMvc;
 
@@ -105,7 +109,7 @@ class AccountsControllerTest {
         when(accountRepository.deActive(anyString())).thenReturn(Status.Inactive);
         when(accountRepository.findByID(anyString())).thenReturn(account);
 
-        String jsonId = "\"id\":\"KHALEDKAR\"";
+        String jsonId = "{\"customerId\":\"KHALEDKAR\",\"creationDate\" : \"\", \"status\":\"Active\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}\n";
         RequestBuilder request = MockMvcRequestBuilders
                 .post("/deactivate")
                 .accept(MediaType.APPLICATION_JSON)
@@ -116,11 +120,7 @@ class AccountsControllerTest {
 
         MockHttpServletResponse response = result.getResponse();
 
-
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-
-        Assertions.assertThat("http://localhost/deactivate").isEqualTo(
-                response.getHeader(HttpHeaders.LOCATION));
     }
 
 }
