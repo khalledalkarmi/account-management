@@ -8,10 +8,14 @@ import java.util.Objects;
 
 public class CreateAccountValidator {
 
-    //TODO: read from csv file
-    private static List<Customer> customers = List.of(new Customer("KHALEDKAR"), new Customer("YOUSEFSUL"), new Customer("TAYSEERSAB"));
 
-    public static boolean validate(Account account) {
+    private final List<Customer> customers;
+
+    public CreateAccountValidator(CustomerProvider customerProvider) {
+        this.customers = customerProvider.getAllCustomer();
+    }
+
+    public boolean validate(Account account) {
         if (Objects.isNull(account))
             throw new NullPointerException("Invalid Account, account is null");
 

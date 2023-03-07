@@ -2,18 +2,23 @@ package com.progressoft.application.repository;
 
 import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
+import event.eventusecases.ChangeStatusEventUseCase;
+import event.eventusecases.CreateAccountEventUseCase;
 import model.Account;
 import org.springframework.stereotype.Repository;
+import repository.AccountRepository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class AccountRepositoryMySQL implements repository.AccountRepository {
+public class AccountRepositoryMySQL implements AccountRepository {
     private final JpaAccountRepository jpaAccountRepository;
 
     private final AccountMapper mapper;
+
+
 
     public AccountRepositoryMySQL(JpaAccountRepository jpaAccountRepository, AccountMapper mapper) {
         this.jpaAccountRepository = jpaAccountRepository;

@@ -1,23 +1,23 @@
 package usecases;
 
-import lombok.AllArgsConstructor;
 import model.Account;
 import model.Status;
 import org.apache.commons.math3.random.RandomDataGenerator;
 import repository.AccountRepository;
 import validator.CreateAccountValidator;
+import validator.CustomerProvider;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
+
 public class CreateAccountUseCase {
-
-    //TODO should have a dependency on CustomersProvider
-
-    //TODO should set account data here, number, status, etc...
-
     private final AccountRepository accountRepository;
+    private final CreateAccountValidator createAccountValidator;
+
+    public CreateAccountUseCase(AccountRepository accountRepository, CustomerProvider customerProvider){
+        this.accountRepository = accountRepository;
+        this.createAccountValidator = new CreateAccountValidator(customerProvider);
+    }
 
     public void execute(Account account) {
         RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
@@ -25,10 +25,8 @@ public class CreateAccountUseCase {
         account.setStatus(Status.Active);
         account.setAccountNumber(randomWithRandomDataGenerator);
         account.setCreationDate(LocalDateTime.now());
-        if (!CreateAccountValidator.validate(account))
+        if (!createAccountValidator.validate(account))
             throw new IllegalArgumentException("Customer not found");
-
-        System.out.println(account.getAccountNumber());
         accountRepository.save(account);
     }
 }
