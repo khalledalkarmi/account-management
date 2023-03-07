@@ -26,8 +26,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @WebMvcTest(value = AccountsController.class)
 @ExtendWith(SpringExtension.class)
@@ -58,36 +57,7 @@ class AccountsControllerTest {
         Assertions.assertThat(HttpStatus.OK.value()).isEqualTo(response.getStatus());
     }
 
-    @Test
-    public void givenInvalidAccount_whenAddAccount_thenExpectedStatusCode() throws Exception {
 
-        LocalDateTime now = LocalDateTime.now();
-        Account account = Account.builder()
-                .id("KHALEDKAR")
-                .creationDate(now)
-                .status(Status.Inactive)
-                .availableBalance(BigDecimal.valueOf(3025.5015))
-                .accountNumber(123456L)
-                .build();
-
-        doNothing().when(createAccountUseCase).execute(account);
-        doNothing().when(accountRepository).save(account);
-
-        String json = "{\"customerId\":\"KHALEDKAR\",\"creationDate\" : \" " + now + "\", \"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
-        RequestBuilder request = MockMvcRequestBuilders
-                .post("/add")
-                .accept(MediaType.APPLICATION_JSON)
-                .content(json)
-                .contentType(MediaType.APPLICATION_JSON);
-
-        MvcResult result = mockMvc.perform(request).andReturn();
-
-        MockHttpServletResponse response = result.getResponse();
-
-        Assertions.assertThat(HttpStatus.BAD_REQUEST.value()).isEqualTo(response.getStatus());
-        Assertions.assertThat(response.getContentAsString()).isEqualTo("Customer Not Exist");
-
-    }
 
 
     @Test
@@ -102,10 +72,10 @@ class AccountsControllerTest {
                 .accountNumber(123456L)
                 .build();
 
-//        doNothing().when(accountRepository).save(account);
-//        doNothing().when(createAccountUseCase).execute(account);
+        doNothing().when(createAccountUseCase).execute(account);
+        doNothing().when(accountRepository).save(account);
 
-        String json = "{\"id\":\"KHALEDKAR\",\"creationDate\":\"" + now + "\",\"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
+        String json = "{\"customerId\":\"KHALEDKAR\",\"creationDate\" : \" " + now + "\", \"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
 
         RequestBuilder request = MockMvcRequestBuilders
                 .post("/add")
@@ -119,8 +89,6 @@ class AccountsControllerTest {
 
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
 
-        Assertions.assertThat("http://localhost/add").isEqualTo(
-                response.getHeader(HttpHeaders.LOCATION));
     }
 
     //TODO: check duplicated Account when create

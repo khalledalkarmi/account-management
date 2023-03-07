@@ -47,6 +47,6 @@ public class AccountsController {
         Account map = accountMapper.map(accountEntity);
         System.out.println(accountEntity);
         createAccountUseCase.execute(map);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
