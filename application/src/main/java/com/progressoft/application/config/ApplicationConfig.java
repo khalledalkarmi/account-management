@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import repository.AccountRepository;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
+import usecases.InactivateAccountUseCase;
 
 @Configuration
 public class ApplicationConfig {
@@ -18,5 +19,10 @@ public class ApplicationConfig {
     @Bean
     public DeactivateAccountUseCase deactivateAccountUseCase(AccountRepository accountRepository) {
         return new DeactivateAccountUseCase(accountRepository);
+    }
+
+    @Bean
+    public InactivateAccountUseCase inactivateAccountUseCase(AccountRepository accountRepository) {
+        return new InactivateAccountUseCase(accountRepository);
     }
 }

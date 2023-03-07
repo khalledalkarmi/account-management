@@ -15,10 +15,10 @@ public class CreateAccountValidator {
         if (Objects.isNull(account))
             throw new NullPointerException("Invalid Account, account is null");
 
-        if (Objects.isNull(account.getId()))
+        if (Objects.isNull(account.getCustomerId()))
             throw new NullPointerException("Invalid Account id, account id is null");
         for (Customer customer : customers) {
-            if (customer.getName().equals(account.getId()))
+            if (customer.getName().equals(account.getCustomerId()))
                 return true;
         }
         return false;

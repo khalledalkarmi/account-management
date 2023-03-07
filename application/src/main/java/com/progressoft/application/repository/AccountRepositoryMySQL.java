@@ -35,7 +35,7 @@ public class AccountRepositoryMySQL implements repository.AccountRepository {
 
     @Override
     public Account findByID(String id) {
-        Optional<AccountEntity> accountEntity = jpaAccountRepository.findByCustomerId(id);
+        Optional<AccountEntity> accountEntity = jpaAccountRepository.findByAccountNumber(Long.parseLong(id));
         return accountEntity.map(mapper::map).orElse(null);
     }
 }

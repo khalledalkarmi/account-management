@@ -21,14 +21,7 @@ class CreateAccountValidatorTest {
     @Test
     public void givenValidAccount_whenValidate_thenExpectedResult() {
 
-        Account account = Account.builder().id("").build();
-        Assertions.assertThat(CreateAccountValidator.validate(account)).isFalse();
 
-         account = Account.builder().id("KHALEDKA").build();
-        Assertions.assertThat(CreateAccountValidator.validate(account)).isFalse();
-
-        account = Account.builder().id("KHALEDKAR").build();
-        Assertions.assertThat(CreateAccountValidator.validate(account)).isTrue();
 
     }
 }

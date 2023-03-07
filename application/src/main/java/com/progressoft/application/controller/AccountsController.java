@@ -1,6 +1,5 @@
 package com.progressoft.application.controller;
 
-import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
+import usecases.InactivateAccountUseCase;
 
 import java.util.List;
 
@@ -32,20 +32,21 @@ public class AccountsController {
     // /api/v1/accounts/{customerId}/{accountNumber}
 
     private final CreateAccountUseCase createAccountUseCase;
-
     private final DeactivateAccountUseCase deactivateAccountUseCase;
-
     private final AccountRepositoryMySQL accountRepository;
     private final AccountMapper accountMapper;
+    private final InactivateAccountUseCase inactivateAccountUseCase;
 
     public AccountsController(CreateAccountUseCase createAccountUseCase,
                               DeactivateAccountUseCase deactivateAccountUseCase,
                               AccountRepositoryMySQL accountRepository,
-                              AccountMapper accountMapper) {
+                              AccountMapper accountMapper,
+                              InactivateAccountUseCase inactivateAccountUseCase) {
         this.createAccountUseCase = createAccountUseCase;
         this.deactivateAccountUseCase = deactivateAccountUseCase;
         this.accountRepository = accountRepository;
         this.accountMapper = accountMapper;
+        this.inactivateAccountUseCase = inactivateAccountUseCase;
     }
 
     @GetMapping
@@ -58,16 +59,23 @@ public class AccountsController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(@RequestBody AccountEntity accountEntity) {
-        Account map = accountMapper.map(accountEntity);
-        log.info("Received create account request {}", accountEntity);
+    public void add(@RequestBody AccountRequest accountRequest) {
+        Account map = accountMapper.map(accountRequest);
+        log.info("Received create account request {}", accountRequest);
         createAccountUseCase.execute(map);
     }
 
     @PostMapping("{accountNumber}/deactivate")
-    public void deactivate(@RequestBody Account account) {
-        //TODO: this should accept body request
+    public void deactivate(@PathVariable String accountNumber) {
+        Account byID = accountRepository.findByID(accountNumber);
         log.info("Deactivate Account number {}", accountMapper);
-        deactivateAccountUseCase.execute(account);
+        deactivateAccountUseCase.execute(byID);
+    }
+
+    @PostMapping("{accountNumber}/activate")
+    public void activate(@PathVariable String accountNumber) {
+        Account byID = accountRepository.findByID(accountNumber);
+        log.info("Inactivate Account number {}", accountMapper);
+        inactivateAccountUseCase.execute(byID);
     }
 }

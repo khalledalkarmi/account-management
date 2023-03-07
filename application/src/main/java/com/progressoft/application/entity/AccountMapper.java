@@ -1,5 +1,6 @@
 package com.progressoft.application.entity;
 
+import com.progressoft.application.controller.AccountRequest;
 import model.Account;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,11 @@ public class AccountMapper {
                 .creationDate(accountEntity.getCreationDate())
                 .build();
 
+    }
+
+    public Account map(AccountRequest accountRequest){
+        return Account.builder().availableBalance(accountRequest.getBalance())
+                .customerId(accountRequest.getCustomerId()).build();
     }
 
 }
