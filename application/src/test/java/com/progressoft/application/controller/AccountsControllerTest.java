@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import usecases.CreateAccountUseCase;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -36,7 +37,8 @@ class AccountsControllerTest {
     private AccountRepositoryMySQL accountRepository;
     @MockBean
     private AccountMapper accountMapper;
-
+    @MockBean
+    private CreateAccountUseCase createAccountUseCase;
     @Autowired
     MockMvc mockMvc;
 
@@ -59,18 +61,19 @@ class AccountsControllerTest {
     @Test
     public void givenInvalidAccount_whenAddAccount_thenExpectedStatusCode() throws Exception {
 
+        LocalDateTime now = LocalDateTime.now();
         Account account = Account.builder()
-                .id("KHALEDKA")
-                .creationDate(LocalDateTime.now())
+                .id("KHALEDKAR")
+                .creationDate(now)
                 .status(Status.Inactive)
                 .availableBalance(BigDecimal.valueOf(3025.5015))
                 .accountNumber(123456L)
                 .build();
 
+        doNothing().when(createAccountUseCase).execute(account);
         doNothing().when(accountRepository).save(account);
 
-        String json = "{\"id\":\"KHALEDKAR\",\"creationDate\":\"2023-03-06 10:42:11.720780\",\"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
-
+        String json = "{\"customerId\":\"KHALEDKAR\",\"creationDate\" : \" " + now + "\", \"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
         RequestBuilder request = MockMvcRequestBuilders
                 .post("/add")
                 .accept(MediaType.APPLICATION_JSON)
@@ -90,17 +93,19 @@ class AccountsControllerTest {
     @Test
     public void givenValidAccount_whenAddAccount_thenExpectedStatusCode() throws Exception {
 
+        LocalDateTime now = LocalDateTime.now();
         Account account = Account.builder()
                 .id("KHALEDKAR")
-                .creationDate(LocalDateTime.now())
+                .creationDate(now)
                 .status(Status.Inactive)
                 .availableBalance(BigDecimal.valueOf(3025.5015))
                 .accountNumber(123456L)
                 .build();
 
-        doNothing().when(accountRepository).save(account);
+//        doNothing().when(accountRepository).save(account);
+//        doNothing().when(createAccountUseCase).execute(account);
 
-        String json = "{\"id\":\"KHALEDKAR\",\"creationDate\":\"2023-03-06 10:42:11.720780\",\"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
+        String json = "{\"id\":\"KHALEDKAR\",\"creationDate\":\"" + now + "\",\"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
 
         RequestBuilder request = MockMvcRequestBuilders
                 .post("/add")
@@ -111,7 +116,6 @@ class AccountsControllerTest {
         MvcResult result = mockMvc.perform(request).andReturn();
 
         MockHttpServletResponse response = result.getResponse();
-
 
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
 
