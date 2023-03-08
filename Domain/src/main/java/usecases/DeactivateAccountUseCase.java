@@ -1,28 +1,22 @@
 package usecases;
 
+import event.eventusecases.ChangeStatusEventUseCase;
 import lombok.AllArgsConstructor;
 import model.Account;
 import model.Status;
 import repository.AccountRepository;
 
-import java.util.Objects;
-
 @AllArgsConstructor
 public class DeactivateAccountUseCase {
 
+    //DONE should have deactivation logic here instead of in the repository
     private AccountRepository accountRepository;
+    private final ChangeStatusEventUseCase changeStatusEventUseCase;
 
-    public Status execute(Account account) {
-        if (Objects.isNull(account))
-            throw new NullPointerException("Invalid Account, Account is null");
-        Status status = account.getStatus();
-        if (Objects.isNull(status))
-            throw new NullPointerException("Invalid Account, status is null");
-        if (status.equals(Status.Active))
-             accountRepository.deActive(account.getId());
-
-        return account.getStatus();
-
+    public void execute(Account account) {
+        account.setStatus(Status.Inactive);
+        accountRepository.save(account);
+        changeStatusEventUseCase.execute();
     }
 
 

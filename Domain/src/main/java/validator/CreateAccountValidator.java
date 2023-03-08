@@ -8,17 +8,25 @@ import java.util.Objects;
 
 public class CreateAccountValidator {
 
-    //TODO: read from csv file
-    private static List<Customer> customers = List.of(new Customer("KHALEDKAR"), new Customer("YOUSEFSUL"), new Customer("TAYSEERSAB"));
+    //TODO Add dependency on CustomerProvider and dont call it in customer
+    //TODO Use Streams for filtering/finding the customer by ID
 
-    public static boolean validate(Account account) {
+    private final List<Customer> customers;
+
+    public CreateAccountValidator(CustomerProvider customerProvider) {
+        this.customers = customerProvider.getAllCustomer();
+    }
+
+    //Return Set<Violation> instead of boolean and handle it in the CreateAccountUseCase
+
+    public boolean validate(Account account) {
         if (Objects.isNull(account))
             throw new NullPointerException("Invalid Account, account is null");
 
-        if (Objects.isNull(account.getId()))
+        if (Objects.isNull(account.getCustomerId()))
             throw new NullPointerException("Invalid Account id, account id is null");
         for (Customer customer : customers) {
-            if (customer.getName().equals(account.getId()))
+            if (customer.getName().equals(account.getCustomerId()))
                 return true;
         }
         return false;
