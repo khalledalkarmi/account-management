@@ -30,10 +30,10 @@ public class CreateAccountUseCase {
         accountRepository.save(account);
 
         //TODO This use case doesn't have to be a separate use case, just a private method
-        publishEvent(account , "ACCOUNT CREATED");
+        publishEvent(account);
     }
 
-    private void publishEvent(Object payload , String message) {
-        eventPublisher.publish(new Event(payload , message));
+    private void publishEvent(Object payload) {
+        eventPublisher.publish(new Event(payload , "ACCOUNT CREATED"));
     }
 }

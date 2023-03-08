@@ -17,10 +17,10 @@ public class InactivateAccountUseCase {
         account.setStatus(Status.Active);
         accountRepository.save(account);
 
-        publishEvent(account , "Account Deactivated");
+        publishEvent(account);
     }
 
-    private void publishEvent(Object payload , String message) {
-        eventPublisher.publish(new Event(payload , message));
+    private void publishEvent(Object payload) {
+        eventPublisher.publish(new Event(payload , "Account Inactivated"));
     }
 }
