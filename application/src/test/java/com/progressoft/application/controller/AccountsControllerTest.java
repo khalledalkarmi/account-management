@@ -26,12 +26,14 @@ import usecases.InactivateAccountUseCase;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(value = AccountsController.class)
 @ExtendWith(SpringExtension.class)
@@ -95,7 +97,7 @@ class AccountsControllerTest {
     public void givenValidAccountID_whenDeActive_thenExpectedStatusCode() throws Exception {
         Account account = Account.builder().accountNumber(123456789123L).status(Status.Active).build();
         doNothing().when(deactivateAccountUseCase).execute(account);
-        when(accountRepository.findByAccountNumber(anyString())).thenReturn(account);
+        when(accountRepository.findByAccountNumber(anyString())).thenReturn(Optional.of(account));
         RequestBuilder request = post("/api/v1/accounts/123456789123/deactivate")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);

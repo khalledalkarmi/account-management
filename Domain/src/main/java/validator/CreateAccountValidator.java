@@ -1,11 +1,14 @@
 package validator;
 
+import exception.CustomerNotFoundException;
 import lombok.AllArgsConstructor;
 import model.Account;
 import model.Customer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 @AllArgsConstructor
 public class CreateAccountValidator {
 
@@ -16,14 +19,21 @@ public class CreateAccountValidator {
 
     //Return Set<Violation> instead of boolean and handle it in the CreateAccountUseCase
 
-    public boolean validate(Account account) {
+    public List<Violation> validate(Account account) {
+        List<Violation> violations = new ArrayList<>();
         List<Customer> customers = customerProvider.getAllCustomer();
+
         if (Objects.isNull(account))
-            throw new NullPointerException("Invalid Account, account is null");
-
+            violations.add(new Violation(new NullPointerException("Invalid Account, account is null")));
         if (Objects.isNull(account.getCustomerId()))
-            throw new NullPointerException("Invalid Account id, account id is null");
+            violations.add(new Violation(new NullPointerException("Invalid Account id, account id is null")));
 
-        return customers.stream().anyMatch(customer -> customer.getName().equals(account.getCustomerId()));
+        boolean anyMatch = customers.stream().anyMatch(customer -> customer.getName().equals(account.getCustomerId()));
+
+        if (!anyMatch)
+            violations.add(new Violation(new CustomerNotFoundException("Customer not found")));
+
+        return violations;
+
     }
 }

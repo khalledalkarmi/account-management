@@ -1,12 +1,10 @@
 package com.progressoft.application.events;
 
-import com.progressoft.application.entity.AccountEntity;
 import model.Account;
 import model.Status;
 import org.apache.commons.math3.random.RandomDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -18,9 +16,10 @@ import validator.CreateAccountValidator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Collections;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class CreateAccountEventTest {
@@ -36,10 +35,11 @@ public class CreateAccountEventTest {
     @Test
     public void testEventFires() {
         Account account = getAccount();
-        when(createAccountValidator.validate(account)).thenReturn(true);
+        when(createAccountValidator.validate(account)).thenReturn(Collections.emptyList());
         doNothing().when(accountRepository).save(account);
         createAccountUseCase.execute(account);
     }
+
     @TestComponent
     public static class EventTestListener {
         @EventListener

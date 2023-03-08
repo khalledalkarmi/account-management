@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import repository.AccountRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -33,9 +34,8 @@ public class AccountRepositoryMySQL implements AccountRepository {
     }
 
     @Override
-    public Account findByAccountNumber(String id) {
+    public Optional<Account> findByAccountNumber(String id) {
         return jpaAccountRepository.findByAccountNumber(Long.parseLong(id))
-                .map(mapper::toAccount)
-                .orElse(null);
+                .map(mapper::toAccount);
     }
 }

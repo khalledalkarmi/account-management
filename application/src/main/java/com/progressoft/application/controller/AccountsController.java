@@ -1,6 +1,7 @@
 package com.progressoft.application.controller;
 
 import com.progressoft.application.entity.AccountMapper;
+import exception.UserNotFoundException;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.resources.AccountRequest;
 import com.progressoft.application.resources.AccountResponse;
@@ -14,6 +15,7 @@ import usecases.DeactivateAccountUseCase;
 import usecases.InactivateAccountUseCase;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -60,17 +62,20 @@ public class AccountsController {
     public void deactivate(@PathVariable String accountNumber) {
         //TODO A bug will occur if the account is null
 
-        Account account = accountRepository.findByAccountNumber(accountNumber);
+        Optional<Account> account = accountRepository.findByAccountNumber(accountNumber);
+        account.orElseThrow(UserNotFoundException::new);
         log.info("Deactivate Account number {}", account);
-        deactivateAccountUseCase.execute(account);
+        deactivateAccountUseCase.execute(account.get());
     }
 
     @PostMapping("{accountNumber}/activate")
     public void activate(@PathVariable String accountNumber) {
         //TODO A bug will occur if the account is null
 
-        Account account = accountRepository.findByAccountNumber(accountNumber);
-        log.info("Inactivate Account number {}", account.getAccountNumber());
-        inactivateAccountUseCase.execute(account);
+        Optional<Account> account = accountRepository.findByAccountNumber(accountNumber);
+        account.orElseThrow(UserNotFoundException::new);
+
+        log.info("Inactivate Account number {}", account.get().getAccountNumber());
+        inactivateAccountUseCase.execute(account.get());
     }
 }
