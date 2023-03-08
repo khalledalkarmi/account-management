@@ -17,7 +17,6 @@ public class EventPublisherService implements EventPublisher {
 
     @Override
     public void publish(Event event) {
-        EventMapper eventMapper = new EventMapper();
-        applicationEventPublisher.publishEvent(eventMapper.map(event));
+        applicationEventPublisher.publishEvent(new SpringEvent("",event));
     }
 }

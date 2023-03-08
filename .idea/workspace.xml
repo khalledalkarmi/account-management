@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="clean dead code">
-      <change afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/repository/AccountRepositoryMySQLTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/test/resources/application.properties" afterDir="false" />
+    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="add test for jpa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/config/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/repository/JpaAccountRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/repository/JpaAccountRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/EventMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/EventPublisherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/EventPublisherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/SpringEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/SpringEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AccountRepositoryMySQLTest">
+  <component name="RunManager" selected="Spring Boot.Application (1)">
     <configuration name="AccountRepositoryMySQLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
@@ -112,22 +108,6 @@
       <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
       <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.AccountRepositoryMySQLTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountRepositoryMySQLTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.progressoft.application.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.AccountRepositoryMySQLTest" />
-      <option name="METHOD_NAME" value="findAll" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,6 +127,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="METHOD_NAME" value="givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JpaAccountRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
@@ -162,18 +158,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JpaAccountRepositoryTest.whenFindByAccountNumber_thenExpectedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.progressoft.application.Application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.progressoft.application.repository.*" />
+          <option name="PATTERN" value="com.progressoft.application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.JpaAccountRepositoryTest" />
-      <option name="METHOD_NAME" value="whenFindByAccountNumber_thenExpectedResult" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountRepositoryMySQLTest" />
-        <item itemvalue="JUnit.AccountRepositoryMySQLTest.findAll" />
+        <item itemvalue="Spring Boot.Application (1)" />
+        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
         <item itemvalue="JUnit.JpaAccountRepositoryTest" />
-        <item itemvalue="JUnit.JpaAccountRepositoryTest.whenFindByAccountNumber_thenExpectedResult" />
         <item itemvalue="JUnit.AccountsControllerTest" />
+        <item itemvalue="JUnit.AccountRepositoryMySQLTest" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678188521168</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add test for jpa">
+      <created>1678258411898</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678258411898</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +255,7 @@
     <MESSAGE value="implement deactivate" />
     <MESSAGE value="add todos" />
     <MESSAGE value="clean dead code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean dead code" />
+    <MESSAGE value="add test for jpa" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test for jpa" />
   </component>
 </project>
