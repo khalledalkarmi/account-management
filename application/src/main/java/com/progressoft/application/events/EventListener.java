@@ -11,6 +11,6 @@ public class EventListener implements ApplicationListener<SpringEvent> {
 
     @Override
     public void onApplicationEvent(SpringEvent event) {
-        log.info("Event Publish {}", event.getMessage());
+        log.info("Event Publish {} Paylaod {}", event.getMessage() , event.getPaylaod());
     }
 }

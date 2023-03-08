@@ -1,13 +1,11 @@
 package com.progressoft.application.repository;
 
-import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
 import model.Account;
 import org.springframework.stereotype.Repository;
 import repository.AccountRepository;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -24,20 +22,20 @@ public class AccountRepositoryMySQL implements AccountRepository {
 
     @Override
     public void save(Account account) {
-        jpaAccountRepository.save(mapper.map(account));
+        jpaAccountRepository.save(mapper.toAccountEntity(account));
     }
 
     @Override
     public List<Account> findAll() {
         return jpaAccountRepository.findAll().stream()
-                .map(mapper::map)
+                .map(mapper::toAccount)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Account findByAccountNumber(String id) {
         return jpaAccountRepository.findByAccountNumber(Long.parseLong(id))
-                .map(mapper::map)
+                .map(mapper::toAccount)
                 .orElse(null);
     }
 }
