@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="fix typo">
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/exception/CustomerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/Violation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ControllerAdviser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/exception/InvalidAccountException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/events/CreateAccountEventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/events/CreateAccountEventTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ControllerAdviser.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ControllerAdviser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/resources/AccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/resources/AccountRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +35,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/6.0.6/spring-webmvc-6.0.6-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,23 +99,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="AccountsControllerTest.getAllAccounts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.progressoft.application.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
-      <option name="METHOD_NAME" value="getAllAccounts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode">
     <configuration name="AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
@@ -183,6 +164,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.progressoft.application.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Application" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
@@ -196,7 +184,6 @@
         <item itemvalue="JUnit.CreateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" />
         <item itemvalue="JUnit.AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
         <item itemvalue="JUnit.AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" />
-        <item itemvalue="JUnit.AccountsControllerTest.getAllAccounts" />
       </list>
     </recent_temporary>
   </component>
