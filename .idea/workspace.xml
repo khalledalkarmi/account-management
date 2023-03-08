@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="clean dead code">
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/CustomerProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/EventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/EventMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/EventPublisherService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/events/SpringEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/utils/CustomerProviderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/repository/AccountRepositoryMySQLTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/test/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/event/eventusecases/ChangeStatusEventUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/event/eventusecases/ChangeStatusEventUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/event/eventusecases/CreateAccountEventUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/event/eventusecases/CreateAccountEventUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/DeactivateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/DeactivateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/InactivateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/InactivateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/test/java/validator/CreateAccountValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/test/java/validator/CreateAccountValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/config/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/entity/AccountMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/repository/JpaAccountRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/repository/JpaAccountRepositoryTest.java" afterDir="false" />
@@ -37,6 +25,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -62,35 +51,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/khaled/gitlab/account-management&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;3676d55f84497cbeadfc614c1b1b62fc&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/home/khaled/gitlab/account-management",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "3676d55f84497cbeadfc614c1b1b62fc",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.progressoft.application.resources" />
       <recent name="model" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.progressoft.application.repository" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="usecases" />
@@ -103,8 +100,39 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AccountsControllerTest.getAllAccounts">
-    <configuration name="AccountsControllerTest.getAllAccounts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AccountRepositoryMySQLTest">
+    <configuration name="AccountRepositoryMySQLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.progressoft.application.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.AccountRepositoryMySQLTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryMySQLTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.progressoft.application.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.AccountRepositoryMySQLTest" />
+      <option name="METHOD_NAME" value="findAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
         <pattern>
@@ -114,69 +142,38 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
       <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
-      <option name="METHOD_NAME" value="getAllAccounts" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountsControllerTest.givenValidAccountID_whenDeActive_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JpaAccountRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="PATTERN" value="com.progressoft.application.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
-      <option name="METHOD_NAME" value="givenValidAccountID_whenDeActive_thenExpectedStatusCode" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.JpaAccountRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JpaAccountRepositoryTest.whenFindByAccountNumber_thenExpectedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="PATTERN" value="com.progressoft.application.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
-      <option name="METHOD_NAME" value="givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
+      <option name="PACKAGE_NAME" value="com.progressoft.application.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.repository.JpaAccountRepositoryTest" />
+      <option name="METHOD_NAME" value="whenFindByAccountNumber_thenExpectedResult" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateAccountValidatorTest.givenInvalidAccount_whenValidate_thenExceptionIsThrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="validator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="validator" />
-      <option name="MAIN_CLASS_NAME" value="validator.CreateAccountValidatorTest" />
-      <option name="METHOD_NAME" value="givenInvalidAccount_whenValidate_thenExceptionIsThrown" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="application" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.progressoft.application.Application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.progressoft.application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -190,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountsControllerTest.getAllAccounts" />
-        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccountID_whenDeActive_thenExpectedStatusCode" />
-        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
-        <item itemvalue="Spring Boot.Application (1)" />
-        <item itemvalue="JUnit.CreateAccountValidatorTest.givenInvalidAccount_whenValidate_thenExceptionIsThrown" />
+        <item itemvalue="JUnit.AccountRepositoryMySQLTest" />
+        <item itemvalue="JUnit.AccountRepositoryMySQLTest.findAll" />
+        <item itemvalue="JUnit.JpaAccountRepositoryTest" />
+        <item itemvalue="JUnit.JpaAccountRepositoryTest.whenFindByAccountNumber_thenExpectedResult" />
+        <item itemvalue="JUnit.AccountsControllerTest" />
       </list>
     </recent_temporary>
   </component>
