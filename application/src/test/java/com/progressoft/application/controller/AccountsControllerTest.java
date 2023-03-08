@@ -1,6 +1,5 @@
 package com.progressoft.application.controller;
 
-import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.repository.JpaAccountRepository;
@@ -32,7 +31,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
 @WebMvcTest(value = AccountsController.class)
 @ExtendWith(SpringExtension.class)
@@ -91,6 +91,7 @@ class AccountsControllerTest {
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
 
     }
+
     @Test
     public void givenValidAccountID_whenDeActive_thenExpectedStatusCode() throws Exception {
         Account account = Account.builder().accountNumber(123456789123L).status(Status.Active).build();
