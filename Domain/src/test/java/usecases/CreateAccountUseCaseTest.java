@@ -1,6 +1,7 @@
 package usecases;
 
 import model.Account;
+import model.Customer;
 import model.Status;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,43 +10,27 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import repository.AccountRepository;
+import validator.CreateAccountValidator;
+import validator.CustomerProvider;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
 class CreateAccountUseCaseTest {
-
-
     @Mock
     private AccountRepository accountRepository;
-
+    @Mock
+    private CustomerProvider customerProvider;
+    @Mock
+    private CreateAccountValidator createAccountValidator;
     @InjectMocks
     private CreateAccountUseCase createAccountUseCase;
-
-    /*
-    @Test
-    void givenInvalidAccount_whenExecute_thenExceptionIsThrown() {
-
-        Account account = Account.builder()
-                .accountNumber(123456L)
-                .build();
-
-        Account finalAccount = account;
-        Assertions.assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> createAccountUseCase.execute(finalAccount))
-                .withMessage("Invalid Account id, account id is null");
-
-        account = Account.builder().id("KHALEDKA").build();
-        Account finalAccount1 = account;
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> createAccountUseCase.execute(finalAccount1))
-                .withMessage("Customer not found");
-    }
-
-     */
-
 
     @Test
     void givenValidAccount_whenExecute_thenExpectedResult() {
@@ -53,7 +38,8 @@ class CreateAccountUseCaseTest {
                 .customerId("KHALEDKAR")
                 .availableBalance(BigDecimal.valueOf(3025.5015))
                 .build();
-
+        when(createAccountValidator.validate(account)).thenReturn(true);
+//        when(customerProvider.getAllCustomer()).thenReturn(List.of(new Customer("KHALEDKAR")));
         createAccountUseCase.execute(account);
         verify(accountRepository).save(account);
     }

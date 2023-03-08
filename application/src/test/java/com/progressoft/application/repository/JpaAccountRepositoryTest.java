@@ -1,6 +1,7 @@
 package com.progressoft.application.repository;
 
 import com.progressoft.application.entity.AccountEntity;
+import model.Account;
 import model.Status;
 import org.apache.commons.math3.random.RandomDataGenerator;
 import org.assertj.core.api.Assertions;
@@ -8,7 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.transaction.annotation.Transactional;
+import repository.AccountRepository;
+import usecases.CreateAccountUseCase;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -25,8 +30,6 @@ class JpaAccountRepositoryTest {
 
     @Autowired
     JpaAccountRepository accountRepository;
-
-
     RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
 
     @Test
@@ -37,7 +40,7 @@ class JpaAccountRepositoryTest {
 
     @Test
     public void givenValidAccountEntity_whenSave_thenExpectedResult() {
-        AccountEntity accountEntity = getAccount();
+        AccountEntity accountEntity = getAccountEntity();
 
         AccountEntity save = accountRepository.save(accountEntity);
         Assertions.assertThat(save).hasFieldOrPropertyWithValue("id", 1L);
@@ -47,9 +50,9 @@ class JpaAccountRepositoryTest {
     @Test
     public void whenFindAllAccount_thenExpectedResult() {
 
-        AccountEntity account1 = getAccount();
-        AccountEntity account2 = getAccount();
-        AccountEntity account3 = getAccount();
+        AccountEntity account1 = getAccountEntity();
+        AccountEntity account2 = getAccountEntity();
+        AccountEntity account3 = getAccountEntity();
 
         testEntityManager.persist(account1);
         testEntityManager.persist(account2);
@@ -61,9 +64,9 @@ class JpaAccountRepositoryTest {
 
     @Test
     public void whenFindByAccountNumber_thenExpectedResult() {
-        AccountEntity account1 = getAccount();
-        AccountEntity account2 = getAccount();
-        AccountEntity account3 = getAccount();
+        AccountEntity account1 = getAccountEntity();
+        AccountEntity account2 = getAccountEntity();
+        AccountEntity account3 = getAccountEntity();
 
         testEntityManager.persist(account1);
         testEntityManager.persist(account2);
@@ -74,7 +77,7 @@ class JpaAccountRepositoryTest {
         Assertions.assertThat(byAccountNumber.get()).hasFieldOrPropertyWithValue("accountNumber", accountNumber);
     }
 
-    private AccountEntity getAccount() {
+    private AccountEntity getAccountEntity() {
         long randomWithRandomDataGenerator = randomDataGenerator.nextLong(1_000_000_000_000_000L, 9_999_999_999_999_999L);
         return AccountEntity.builder().
                 accountNumber(randomWithRandomDataGenerator)

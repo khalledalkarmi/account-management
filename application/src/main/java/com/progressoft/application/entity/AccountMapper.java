@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountMapper {
+
+    //TODO use mapToX or toX naming convention for mappers methods
+
     public AccountEntity map(Account account) {
         return new AccountEntity.AccountEntityBuilder()
                 .id(account.getId())
@@ -31,8 +34,10 @@ public class AccountMapper {
     }
 
     public Account map(AccountRequest accountRequest) {
-        return Account.builder().availableBalance(accountRequest.getBalance())
-                .customerId(accountRequest.getCustomerId()).build();
+        return Account.builder()
+                .availableBalance(accountRequest.getBalance())
+                .customerId(accountRequest.getCustomerId())
+                .build();
     }
 
     public AccountResponse mapEntity(Account account) {

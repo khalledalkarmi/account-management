@@ -8,12 +8,16 @@ import java.util.Objects;
 
 public class CreateAccountValidator {
 
+    //TODO Add dependency on CustomerProvider and dont call it in customer
+    //TODO Use Streams for filtering/finding the customer by ID
 
     private final List<Customer> customers;
 
     public CreateAccountValidator(CustomerProvider customerProvider) {
         this.customers = customerProvider.getAllCustomer();
     }
+
+    //Return Set<Violation> instead of boolean and handle it in the CreateAccountUseCase
 
     public boolean validate(Account account) {
         if (Objects.isNull(account))

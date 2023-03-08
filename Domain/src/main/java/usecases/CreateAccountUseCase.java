@@ -23,14 +23,18 @@ public class CreateAccountUseCase {
     }
 
     public void execute(Account account) {
+        if (!createAccountValidator.validate(account))
+            throw new IllegalArgumentException("Customer not found");
+
         RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
         long randomWithRandomDataGenerator = randomDataGenerator.nextLong(1_000_000_000_000_000L, 9_999_999_999_999_999L);
         account.setStatus(Status.Active);
         account.setAccountNumber(randomWithRandomDataGenerator);
         account.setCreationDate(LocalDateTime.now());
-        if (!createAccountValidator.validate(account))
-            throw new IllegalArgumentException("Customer not found");
+
         accountRepository.save(account);
+
+        //TODO This use case doesn't have to be a separate use case, just a private method
         createAccountEventUseCase.execute();
     }
 }

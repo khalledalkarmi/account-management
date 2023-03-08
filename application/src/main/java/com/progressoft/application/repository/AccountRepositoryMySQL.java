@@ -27,16 +27,17 @@ public class AccountRepositoryMySQL implements AccountRepository {
         jpaAccountRepository.save(mapper.map(account));
     }
 
-
     @Override
     public List<Account> findAll() {
-        List<AccountEntity> all = jpaAccountRepository.findAll();
-        return all.stream().map(mapper::map).collect(Collectors.toList());
+        return jpaAccountRepository.findAll().stream()
+                .map(mapper::map)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Account findByAccountNumber(String id) {
-        Optional<AccountEntity> accountEntity = jpaAccountRepository.findByAccountNumber(Long.parseLong(id));
-        return accountEntity.map(mapper::map).orElse(null);
+        return jpaAccountRepository.findByAccountNumber(Long.parseLong(id))
+                .map(mapper::map)
+                .orElse(null);
     }
 }

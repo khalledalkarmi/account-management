@@ -9,7 +9,7 @@ import repository.AccountRepository;
 @AllArgsConstructor
 public class DeactivateAccountUseCase {
 
-    //TODO should have deactivation logic here instead of in the repository
+    //DONE should have deactivation logic here instead of in the repository
     private AccountRepository accountRepository;
     private final ChangeStatusEventUseCase changeStatusEventUseCase;
 
