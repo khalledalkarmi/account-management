@@ -1,9 +1,8 @@
 package usecases;
 
+import event.Event;
+import event.EventPublisher;
 import model.Account;
-import model.Customer;
-import model.Status;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,11 +13,10 @@ import validator.CreateAccountValidator;
 import validator.CustomerProvider;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Collections;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -29,6 +27,8 @@ class CreateAccountUseCaseTest {
     private CustomerProvider customerProvider;
     @Mock
     private CreateAccountValidator createAccountValidator;
+    @Mock
+    private EventPublisher eventPublisher;
     @InjectMocks
     private CreateAccountUseCase createAccountUseCase;
 
@@ -38,8 +38,8 @@ class CreateAccountUseCaseTest {
                 .customerId("KHALEDKAR")
                 .availableBalance(BigDecimal.valueOf(3025.5015))
                 .build();
-        when(createAccountValidator.validate(account)).thenReturn(true);
-//        when(customerProvider.getAllCustomer()).thenReturn(List.of(new Customer("KHALEDKAR")));
+        when(createAccountValidator.validate(account)).thenReturn(Collections.emptyList());
+        doNothing().when(eventPublisher).publish(any(Event.class));
         createAccountUseCase.execute(account);
         verify(accountRepository).save(account);
     }

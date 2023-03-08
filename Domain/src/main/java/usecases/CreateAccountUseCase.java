@@ -8,8 +8,10 @@ import model.Status;
 import org.apache.commons.math3.random.RandomDataGenerator;
 import repository.AccountRepository;
 import validator.CreateAccountValidator;
+import validator.Violation;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 public class CreateAccountUseCase {
@@ -18,8 +20,12 @@ public class CreateAccountUseCase {
     private final EventPublisher eventPublisher;
 
     public void execute(Account account) {
-        if (!createAccountValidator.validate(account))
-            throw new IllegalArgumentException("Customer not found");
+        List<Violation> validate = createAccountValidator.validate(account);
+        if (validate.size() != 0) {
+            for (Violation violation : validate) {
+                throw violation.getException();
+            }
+        }
 
         RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
         long randomWithRandomDataGenerator = randomDataGenerator.nextLong(1_000_000_000_000_000L, 9_999_999_999_999_999L);
@@ -34,6 +40,6 @@ public class CreateAccountUseCase {
     }
 
     private void publishEvent(Object payload) {
-        eventPublisher.publish(new Event(payload , "ACCOUNT CREATED"));
+        eventPublisher.publish(new Event(payload, "ACCOUNT CREATED"));
     }
 }
