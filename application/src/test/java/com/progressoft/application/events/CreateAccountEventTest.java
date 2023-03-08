@@ -44,7 +44,7 @@ public class CreateAccountEventTest {
     public static class EventTestListener {
         @EventListener
         public void handle(SpringEvent event) {
-            Assertions.assertThat(event.getMessage()).isEqualTo("ACCOUNT_CREATED");
+            Assertions.assertThat(event.getMessage()).isEqualTo("ACCOUNT CREATED");
         }
     }
 
