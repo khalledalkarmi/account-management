@@ -71,7 +71,6 @@ public class AccountsController {
         Account map = accountMapper.map(accountRequest);
         log.info("Received create account request {}", accountRequest);
         createAccountUseCase.execute(map);
-        createAccountEventUseCase.publish();
     }
 
     @PostMapping("{accountNumber}/deactivate")
@@ -79,7 +78,6 @@ public class AccountsController {
         Account account = accountRepository.findByAccountNumber(accountNumber);
         log.info("Deactivate Account number {}", account);
         deactivateAccountUseCase.execute(account);
-        changeStatusEventUseCase.publish();
     }
 
     @PostMapping("{accountNumber}/activate")
@@ -87,6 +85,5 @@ public class AccountsController {
         Account account = accountRepository.findByAccountNumber(accountNumber);
         log.info("Inactivate Account number {}", account.getAccountNumber());
         inactivateAccountUseCase.execute(account);
-        changeStatusEventUseCase.publish();
     }
 }

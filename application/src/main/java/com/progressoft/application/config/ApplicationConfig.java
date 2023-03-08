@@ -15,18 +15,18 @@ import validator.CustomerProvider;
 public class ApplicationConfig {
 
     @Bean
-    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository, CustomerProvider customerProvider) {
-        return new CreateAccountUseCase(accountRepository, customerProvider);
+    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository, CustomerProvider customerProvider , CreateAccountEventUseCase createAccountEventUseCase) {
+        return new CreateAccountUseCase(accountRepository, customerProvider , createAccountEventUseCase);
     }
 
     @Bean
-    public DeactivateAccountUseCase deactivateAccountUseCase(AccountRepository accountRepository) {
-        return new DeactivateAccountUseCase(accountRepository);
+    public DeactivateAccountUseCase deactivateAccountUseCase(AccountRepository accountRepository , ChangeStatusEventUseCase changeStatusEventUseCase) {
+        return new DeactivateAccountUseCase(accountRepository , changeStatusEventUseCase);
     }
 
     @Bean
-    public InactivateAccountUseCase inactivateAccountUseCase(AccountRepository accountRepository) {
-        return new InactivateAccountUseCase(accountRepository);
+    public InactivateAccountUseCase inactivateAccountUseCase(AccountRepository accountRepository, ChangeStatusEventUseCase changeStatusEventUseCase) {
+        return new InactivateAccountUseCase(accountRepository , changeStatusEventUseCase);
     }
 
     @Bean

@@ -1,7 +1,11 @@
 package com.progressoft.application.controller;
 
+import com.progressoft.application.entity.AccountEntity;
 import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
+import com.progressoft.application.repository.JpaAccountRepository;
+import event.eventusecases.ChangeStatusEventUseCase;
+import event.eventusecases.CreateAccountEventUseCase;
 import model.Account;
 import model.Status;
 import org.assertj.core.api.Assertions;
@@ -18,28 +22,40 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import repository.AccountRepository;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
+import usecases.InactivateAccountUseCase;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
 
 @WebMvcTest(value = AccountsController.class)
 @ExtendWith(SpringExtension.class)
 class AccountsControllerTest {
 
     @MockBean
-    private AccountRepositoryMySQL accountRepository;
+    private AccountRepository accountRepository;
+    @MockBean
+    private AccountRepositoryMySQL accountRepositoryMySQL;
     @MockBean
     private AccountMapper accountMapper;
     @MockBean
     private CreateAccountUseCase createAccountUseCase;
-
     @MockBean
     private DeactivateAccountUseCase deactivateAccountUseCase;
+    @MockBean
+    private InactivateAccountUseCase inactivateAccountUseCase;
+    @MockBean
+    private ChangeStatusEventUseCase changeStatusEventUseCase;
+    @MockBean
+    private CreateAccountEventUseCase createAccountEventUseCase;
+    @MockBean
+    private JpaAccountRepository jpaAccountRepository;
     @Autowired
     MockMvc mockMvc;
 
@@ -52,34 +68,18 @@ class AccountsControllerTest {
                 .accountNumber(123456L)
                 .build();
         when(accountRepository.findAll()).thenReturn(List.of(account));
-        RequestBuilder request = MockMvcRequestBuilders.get("/accounts").accept(MediaType.APPLICATION_JSON);
+        RequestBuilder request = MockMvcRequestBuilders.get("/api/v1/accounts").accept(MediaType.APPLICATION_JSON);
         MvcResult mvcResult = mockMvc.perform(request).andReturn();
         MockHttpServletResponse response = mvcResult.getResponse();
         Assertions.assertThat(HttpStatus.OK.value()).isEqualTo(response.getStatus());
     }
 
-
-/*
-
     @Test
     public void givenValidAccount_whenAddAccount_thenExpectedStatusCode() throws Exception {
-
-        LocalDateTime now = LocalDateTime.now();
-        Account account = Account.builder()
-                .id("KHALEDKAR")
-                .creationDate(now)
-                .status(Status.Inactive)
-                .availableBalance(BigDecimal.valueOf(3025.5015))
-                .accountNumber(123456L)
-                .build();
-
-        doNothing().when(createAccountUseCase).execute(account);
-        doNothing().when(accountRepository).save(account);
-
-        String json = "{\"customerId\":\"KHALEDKAR\",\"creationDate\" : \" " + now + "\", \"status\":\"Inactive\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}";
+        String json = "{\"customerId\":\"KHALEDKAR\",\"availableBalance\":\"3025.5015\"}";
 
         RequestBuilder request = MockMvcRequestBuilders
-                .post("/add")
+                .post("/api/v1/accounts")
                 .accept(MediaType.APPLICATION_JSON)
                 .content(json)
                 .contentType(MediaType.APPLICATION_JSON);
@@ -91,35 +91,20 @@ class AccountsControllerTest {
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
 
     }
-
-    //TODO: check duplicated Account when create
-
     @Test
     public void givenValidAccountID_whenDeActive_thenExpectedStatusCode() throws Exception {
-        Account account = Account.builder()
-                .id("KHALEDKAR")
-                .creationDate(LocalDateTime.now())
-                .status(Status.Inactive)
-                .availableBalance(BigDecimal.valueOf(3025.5015))
-                .accountNumber(123456L)
-                .build();
-        when(accountRepository.deActive(anyString())).thenReturn(Status.Inactive);
+        Account account = Account.builder().accountNumber(123456789123L).status(Status.Active).build();
+        doNothing().when(deactivateAccountUseCase).execute(account);
         when(accountRepository.findByAccountNumber(anyString())).thenReturn(account);
-
-        String jsonId = "{\"customerId\":\"KHALEDKAR\",\"creationDate\" : \"\", \"status\":\"Active\",\"availableBalance\":\"3025.5015\",\"accountNumber\":\"123456\"}\n";
         RequestBuilder request = MockMvcRequestBuilders
-                .post("/deactivate")
+                .post("/api/v1/accounts/123456789123/deactivate")
                 .accept(MediaType.APPLICATION_JSON)
-                .content(jsonId)
                 .contentType(MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(request).andReturn();
-
         MockHttpServletResponse response = result.getResponse();
-
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+
+
     }
-
-
- */
 }

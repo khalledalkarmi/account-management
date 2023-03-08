@@ -9,7 +9,7 @@ public class CreateAccountEventUseCase {
     private final EventPublisher eventPublisher;
     private static final String MESSAGE = "ACCOUNT_CREATED";
 
-    public void publish() {
+    public void execute() {
         eventPublisher.publish(new Event(MESSAGE));
     }
 }

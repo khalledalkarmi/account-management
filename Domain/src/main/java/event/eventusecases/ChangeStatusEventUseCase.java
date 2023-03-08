@@ -8,7 +8,7 @@ import event.EventPublisher;
 public class ChangeStatusEventUseCase {
     private final EventPublisher eventPublisher;
     private static final String MESSAGE = "ACCOUNT_STATUS_CHANGED";
-    public void publish() {
+    public void execute() {
          eventPublisher.publish(new Event(MESSAGE));
     }
 }
