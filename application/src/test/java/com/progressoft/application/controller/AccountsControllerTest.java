@@ -3,8 +3,6 @@ package com.progressoft.application.controller;
 import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.repository.JpaAccountRepository;
-import event.eventusecases.ChangeStatusEventUseCase;
-import event.eventusecases.CreateAccountEventUseCase;
 import model.Account;
 import model.Status;
 import org.assertj.core.api.Assertions;
@@ -18,12 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcResultMatchersDsl;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import repository.AccountRepository;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
@@ -55,10 +49,6 @@ class AccountsControllerTest {
     private DeactivateAccountUseCase deactivateAccountUseCase;
     @MockBean
     private InactivateAccountUseCase inactivateAccountUseCase;
-    @MockBean
-    private ChangeStatusEventUseCase changeStatusEventUseCase;
-    @MockBean
-    private CreateAccountEventUseCase createAccountEventUseCase;
     @MockBean
     private JpaAccountRepository jpaAccountRepository;
     @Autowired

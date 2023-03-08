@@ -1,6 +1,5 @@
 package com.progressoft.application.events;
 
-import event.eventusecases.ChangeStatusEventUseCase;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +15,9 @@ import static org.mockito.Mockito.verify;
 public class ChangeStatusEventTest {
     @SpyBean
     private EventTestListener eventListener;
-    @Autowired
-    ChangeStatusEventUseCase changeStatusEventUseCase;
 
     @Test
     public void testEventFires() {
-        changeStatusEventUseCase.execute();
         verify(eventListener).handle(any(SpringEvent.class));
     }
 

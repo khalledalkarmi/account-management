@@ -4,8 +4,6 @@ import com.progressoft.application.entity.AccountMapper;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.resources.AccountRequest;
 import com.progressoft.application.resources.AccountResponse;
-import event.eventusecases.ChangeStatusEventUseCase;
-import event.eventusecases.CreateAccountEventUseCase;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import model.Account;
@@ -47,13 +45,13 @@ public class AccountsController {
 
     @GetMapping
     public List<AccountResponse> getAllAccount() {
-        return accountRepository.findAll().stream().map(accountMapper::mapEntity).collect(Collectors.toList());
+        return accountRepository.findAll().stream().map(accountMapper::toAccountResponse).collect(Collectors.toList());
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody AccountRequest accountRequest) {
-        Account map = accountMapper.map(accountRequest);
+        Account map = accountMapper.toAccount(accountRequest);
         log.info("Received create account request {}", accountRequest);
         createAccountUseCase.execute(map);
     }

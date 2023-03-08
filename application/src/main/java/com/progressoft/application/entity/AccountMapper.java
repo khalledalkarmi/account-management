@@ -10,7 +10,7 @@ public class AccountMapper {
 
     //TODO use mapToX or toX naming convention for mappers methods
 
-    public AccountEntity map(Account account) {
+    public AccountEntity toAccountEntity(Account account) {
         return new AccountEntity.AccountEntityBuilder()
                 .id(account.getId())
                 .customerId(account.getCustomerId())
@@ -21,7 +21,7 @@ public class AccountMapper {
                 .build();
     }
 
-    public Account map(AccountEntity accountEntity) {
+    public Account toAccount(AccountEntity accountEntity) {
         return Account.builder()
                 .id(accountEntity.getId())
                 .customerId(accountEntity.getCustomerId())
@@ -33,14 +33,14 @@ public class AccountMapper {
 
     }
 
-    public Account map(AccountRequest accountRequest) {
+    public Account toAccount(AccountRequest accountRequest) {
         return Account.builder()
                 .availableBalance(accountRequest.getBalance())
                 .customerId(accountRequest.getCustomerId())
                 .build();
     }
 
-    public AccountResponse mapEntity(Account account) {
+    public AccountResponse toAccountResponse(Account account) {
         return AccountResponse
                 .builder()
                 .accountNumber(account.getAccountNumber())
