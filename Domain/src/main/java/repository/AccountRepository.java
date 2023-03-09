@@ -10,5 +10,5 @@ public interface AccountRepository {
 
     List<Account> findAll();
 
-    Optional<Account> findByAccountNumber(String id);
+    Optional<Account> findByAccountNumberAndCustomerId(String id, String customerId);
 }

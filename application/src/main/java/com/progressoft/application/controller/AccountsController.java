@@ -1,17 +1,15 @@
 package com.progressoft.application.controller;
 
 import com.progressoft.application.entity.AccountMapper;
-import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.resources.AccountRequest;
 import com.progressoft.application.resources.AccountResponse;
-import exception.InvalidAccountException;
 import exception.UserNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import model.Account;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import repository.AccountRepository;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
 import usecases.InactivateAccountUseCase;
@@ -42,7 +40,7 @@ public class AccountsController {
 
     private final CreateAccountUseCase createAccountUseCase;
     private final DeactivateAccountUseCase deactivateAccountUseCase;
-    private final AccountRepositoryMySQL accountRepository;
+    private final AccountRepository accountRepository;
     private final AccountMapper accountMapper;
     private final InactivateAccountUseCase inactivateAccountUseCase;
 
@@ -61,24 +59,33 @@ public class AccountsController {
         createAccountUseCase.execute(map);
     }
 
-    @PostMapping("{accountNumber}/deactivate")
-    public void deactivate(@PathVariable String accountNumber) {
+    @PostMapping("{customerId}/{accountNumber}/deactivate")
+    public void deactivate(@PathVariable String accountNumber, @PathVariable String customerId) {
         //TODO A bug will occur if the account is null
 
-        Optional<Account> account = accountRepository.findByAccountNumber(accountNumber);
-        account.orElseThrow(UserNotFoundException::new);
+        Account account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId)
+                .orElseThrow(UserNotFoundException::new);
         log.info("Deactivate Account number {}", account);
-        deactivateAccountUseCase.execute(account.get());
+        deactivateAccountUseCase.execute(account);
     }
 
-    @PostMapping("{accountNumber}/activate")
-    public void activate(@PathVariable String accountNumber) {
+    @PostMapping("{customerId}/{accountNumber}/activate")
+    public void activate(@PathVariable String accountNumber, @PathVariable String customerId) {
         //TODO A bug will occur if the account is null
 
-        Optional<Account> account = accountRepository.findByAccountNumber(accountNumber);
+        Optional<Account> account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId);
         account.orElseThrow(UserNotFoundException::new);
 
         log.info("Inactivate Account number {}", account.get().getAccountNumber());
         inactivateAccountUseCase.execute(account.get());
     }
+
+    @ResponseBody
+    @GetMapping(value = "{customerId}/{accountNumber}",produces="application/json")
+    public AccountResponse getAccountByCustomerIdAndAccountNumber(@PathVariable String accountNumber, @PathVariable String customerId) {
+        Optional<Account> account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId);
+        account.orElseThrow(UserNotFoundException::new);
+        return accountMapper.toAccountResponse(account.get());
+    }
+
 }

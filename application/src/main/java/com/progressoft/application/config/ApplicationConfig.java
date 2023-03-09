@@ -14,8 +14,8 @@ import validator.CustomerProvider;
 public class ApplicationConfig {
 
     @Bean
-    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository, CreateAccountValidator createAccountValidator,EventPublisher eventPublisher) {
-        return new CreateAccountUseCase(accountRepository, createAccountValidator ,eventPublisher);
+    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository, CreateAccountValidator createAccountValidator, EventPublisher eventPublisher) {
+        return new CreateAccountUseCase(accountRepository, createAccountValidator, eventPublisher);
     }
 
     @Bean
@@ -29,7 +29,7 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public CreateAccountValidator createAccountValidator(CustomerProvider customerProvider){
+    public CreateAccountValidator createAccountValidator(CustomerProvider customerProvider) {
         return new CreateAccountValidator(customerProvider);
     }
 

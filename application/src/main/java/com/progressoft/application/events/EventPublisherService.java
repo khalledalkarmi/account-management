@@ -10,13 +10,12 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Slf4j
 @Service
-
 public class EventPublisherService implements EventPublisher {
 
     private final ApplicationEventPublisher applicationEventPublisher;
 
     @Override
     public void publish(Event event) {
-        applicationEventPublisher.publishEvent(new SpringEvent("",event));
+        applicationEventPublisher.publishEvent(new SpringEvent("", event));
     }
 }
