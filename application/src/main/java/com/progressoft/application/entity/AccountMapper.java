@@ -38,7 +38,7 @@ public class AccountMapper {
     }
 
     public Account toAccount(AccountRequest accountRequest) {
-        if(!NumberUtils.isCreatable(accountRequest.getBalance()))
+        if (!NumberUtils.isCreatable(accountRequest.getBalance()))
             throw new InvalidAccountException("Invalid Balance , should be number");
         return Account.builder()
                 .availableBalance(new BigDecimal(accountRequest.getBalance()))

@@ -1,7 +1,6 @@
 package com.progressoft.application.controller;
 
 import com.progressoft.application.entity.AccountMapper;
-import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.resources.AccountRequest;
 import com.progressoft.application.resources.AccountResponse;
 import exception.UserNotFoundException;
@@ -10,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import model.Account;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import repository.AccountRepository;
 import usecases.CreateAccountUseCase;
 import usecases.DeactivateAccountUseCase;
 import usecases.InactivateAccountUseCase;
@@ -40,7 +40,7 @@ public class AccountsController {
 
     private final CreateAccountUseCase createAccountUseCase;
     private final DeactivateAccountUseCase deactivateAccountUseCase;
-    private final AccountRepositoryMySQL accountRepository;
+    private final AccountRepository accountRepository;
     private final AccountMapper accountMapper;
     private final InactivateAccountUseCase inactivateAccountUseCase;
 
@@ -63,10 +63,10 @@ public class AccountsController {
     public void deactivate(@PathVariable String accountNumber, @PathVariable String customerId) {
         //TODO A bug will occur if the account is null
 
-        Optional<Account> account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId);
-        account.orElseThrow(UserNotFoundException::new);
+        Account account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId)
+                .orElseThrow(UserNotFoundException::new);
         log.info("Deactivate Account number {}", account);
-        deactivateAccountUseCase.execute(account.get());
+        deactivateAccountUseCase.execute(account);
     }
 
     @PostMapping("{customerId}/{accountNumber}/activate")
@@ -81,8 +81,8 @@ public class AccountsController {
     }
 
     @ResponseBody
-    @GetMapping("{customerId}/{accountNumber}")
-    public AccountResponse getAccountByCustomerIdAndAccountNumber(@PathVariable String accountNumber, @PathVariable String customerId){
+    @GetMapping(value = "{customerId}/{accountNumber}",produces="application/json")
+    public AccountResponse getAccountByCustomerIdAndAccountNumber(@PathVariable String accountNumber, @PathVariable String customerId) {
         Optional<Account> account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId);
         account.orElseThrow(UserNotFoundException::new);
         return accountMapper.toAccountResponse(account.get());
