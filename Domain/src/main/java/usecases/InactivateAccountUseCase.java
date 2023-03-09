@@ -21,6 +21,6 @@ public class InactivateAccountUseCase {
     }
 
     private void publishEvent(Object payload) {
-        eventPublisher.publish(new Event(payload , "Account Inactivated"));
+        eventPublisher.publish(new Event(payload , "ACCOUNT_STATUS_CHANGED"));
     }
 }
