@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="implement exceptionsHandler using ControllerAdviser">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="clean dead code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,6 +158,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.progressoft.application.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Application" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
@@ -190,6 +194,7 @@
       <workItem from="1678024384914" duration="1448000" />
       <workItem from="1678081503921" duration="2110000" />
       <workItem from="1678167382110" duration="1705000" />
+      <workItem from="1678339790016" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="clean dead code">
       <created>1678267109477</created>
@@ -219,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678279024632</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="clean dead code">
+      <created>1678340134833</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678340134833</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,9 +250,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="clean dead code" />
     <MESSAGE value="fix typo" />
     <MESSAGE value="implement exceptionsHandler using ControllerAdviser" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement exceptionsHandler using ControllerAdviser" />
+    <MESSAGE value="clean dead code" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean dead code" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/account_management$All_in_application.ic" NAME="All in application Coverage Results" MODIFIED="1678339838081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
