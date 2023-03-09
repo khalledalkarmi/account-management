@@ -1,13 +1,15 @@
 package com.progressoft.application.controller;
 
 import com.progressoft.application.entity.AccountMapper;
-import exception.UserNotFoundException;
 import com.progressoft.application.repository.AccountRepositoryMySQL;
 import com.progressoft.application.resources.AccountRequest;
 import com.progressoft.application.resources.AccountResponse;
+import exception.InvalidAccountException;
+import exception.UserNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import model.Account;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import usecases.CreateAccountUseCase;
@@ -53,6 +55,7 @@ public class AccountsController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody AccountRequest accountRequest) {
+
         Account map = accountMapper.toAccount(accountRequest);
         log.info("Received create account request {}", accountRequest);
         createAccountUseCase.execute(map);

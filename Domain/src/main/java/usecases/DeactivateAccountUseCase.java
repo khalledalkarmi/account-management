@@ -22,7 +22,7 @@ public class DeactivateAccountUseCase {
     }
 
     private void publishEvent(Object payload) {
-        eventPublisher.publish(new Event(payload , "Account Deactivated"));
+        eventPublisher.publish(new Event(payload , "ACCOUNT_STATUS_CHANGED"));
     }
 
 

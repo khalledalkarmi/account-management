@@ -8,5 +8,5 @@ import java.math.BigDecimal;
 @Data
 public class AccountRequest {
     private String customerId;
-    private BigDecimal balance;
+    private String balance;
 }

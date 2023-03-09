@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="fix typo">
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/exception/CustomerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/Violation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ControllerAdviser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/CreateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/validator/CreateAccountValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/test/java/usecases/CreateAccountUseCaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/repository/AccountRepositoryMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/controller/AccountsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/events/CreateAccountEventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/events/CreateAccountEventTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="clean dead code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,8 +51,8 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;15&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;15&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -102,7 +87,22 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.ChangeStatusEventTest">
+    <configuration name="AccountsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.progressoft.application.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AccountsControllerTest.getAllAccounts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
@@ -119,7 +119,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountsControllerTest.givenValidAccountID_whenDeActive_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
         <pattern>
@@ -129,29 +129,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
       <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
-      <option name="METHOD_NAME" value="givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" />
+      <option name="METHOD_NAME" value="givenValidAccountID_whenDeActive_thenExpectedStatusCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in application" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.progressoft.application.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.progressoft.application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.controller.AccountsControllerTest" />
-      <option name="METHOD_NAME" value="givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateAccountEventTest.testEventFires" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChangeStatusEventTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
         <pattern>
@@ -160,25 +152,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.progressoft.application.events" />
-      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.events.CreateAccountEventTest" />
-      <option name="METHOD_NAME" value="testEventFires" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.progressoft.application.events.ChangeStatusEventTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Domain" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="usecases.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="usecases" />
-      <option name="MAIN_CLASS_NAME" value="usecases.CreateAccountUseCaseTest" />
-      <option name="METHOD_NAME" value="givenValidAccount_whenExecute_thenExpectedResult" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.progressoft.application.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,10 +174,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateAccountEventTest.testEventFires" />
-        <item itemvalue="JUnit.CreateAccountUseCaseTest.givenValidAccount_whenExecute_thenExpectedResult" />
-        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" />
-        <item itemvalue="JUnit.AccountsControllerTest.givenInvalidAccount_whenAddAccount_thenExpectedStatusCode" />
+        <item itemvalue="JUnit.ChangeStatusEventTest" />
+        <item itemvalue="JUnit.All in application" />
+        <item itemvalue="JUnit.AccountsControllerTest.givenValidAccountID_whenDeActive_thenExpectedStatusCode" />
+        <item itemvalue="JUnit.AccountsControllerTest" />
         <item itemvalue="JUnit.AccountsControllerTest.getAllAccounts" />
       </list>
     </recent_temporary>
@@ -212,6 +194,7 @@
       <workItem from="1678024384914" duration="1448000" />
       <workItem from="1678081503921" duration="2110000" />
       <workItem from="1678167382110" duration="1705000" />
+      <workItem from="1678339790016" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="clean dead code">
       <created>1678267109477</created>
@@ -234,7 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678275148466</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="implement exceptionsHandler using ControllerAdviser">
+      <created>1678279024632</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678279024632</updated>
+    </task>
+    <task id="LOCAL-00005" summary="clean dead code">
+      <created>1678340134833</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678340134833</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,8 +250,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="clean dead code" />
     <MESSAGE value="fix typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix typo" />
+    <MESSAGE value="implement exceptionsHandler using ControllerAdviser" />
+    <MESSAGE value="clean dead code" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean dead code" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/account_management$All_in_application.ic" NAME="All in application Coverage Results" MODIFIED="1678339838081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

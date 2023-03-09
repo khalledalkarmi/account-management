@@ -1,6 +1,7 @@
 package com.progressoft.application.exception;
 
 import exception.CustomerNotFoundException;
+import exception.InvalidAccountException;
 import exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,5 +41,15 @@ public class ControllerAdviser extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(InvalidAccountException.class)
+    public ResponseEntity<Object> handleInvalidAccountException(
+            InvalidAccountException exception
+            , WebRequest request) {
 
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", exception.getMessage());
+
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
 }
