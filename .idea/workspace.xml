@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="clean dead code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/DeactivateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/DeactivateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/usecases/InactivateAccountUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/usecases/InactivateAccountUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/events/ChangeStatusEventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/test/java/com/progressoft/application/events/ChangeStatusEventTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,31 +51,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/khaled/gitlab/account-management&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;3676d55f84497cbeadfc614c1b1b62fc&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/home/yousef/IdeaProjects/transaction-sys",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "3676d55f84497cbeadfc614c1b1b62fc",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="validator" />
@@ -95,7 +92,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ChangeStatusEventTest.testEventFires">
+  <component name="RunManager" selected="Spring Boot.Application (1)">
     <configuration name="AccountsControllerTest.givenValidAccount_whenAddAccount_thenExpectedStatusCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <extension name="coverage">
@@ -204,6 +201,7 @@
       <workItem from="1678024384914" duration="1448000" />
       <workItem from="1678081503921" duration="2110000" />
       <workItem from="1678167382110" duration="1705000" />
+      <workItem from="1678339848522" duration="10462000" />
     </task>
     <task id="LOCAL-00001" summary="clean dead code">
       <created>1678267109477</created>
@@ -233,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678283280058</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="clean dead code">
+      <created>1678340110522</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678340110522</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
