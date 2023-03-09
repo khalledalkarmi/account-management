@@ -2,8 +2,12 @@ package com.progressoft.application.entity;
 
 import com.progressoft.application.resources.AccountRequest;
 import com.progressoft.application.resources.AccountResponse;
+import exception.InvalidAccountException;
 import model.Account;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Service
 public class AccountMapper {
@@ -34,8 +38,10 @@ public class AccountMapper {
     }
 
     public Account toAccount(AccountRequest accountRequest) {
+        if(!NumberUtils.isCreatable(accountRequest.getBalance()))
+            throw new InvalidAccountException("Invalid Balance , should be number");
         return Account.builder()
-                .availableBalance(accountRequest.getBalance())
+                .availableBalance(new BigDecimal(accountRequest.getBalance()))
                 .customerId(accountRequest.getCustomerId())
                 .build();
     }
