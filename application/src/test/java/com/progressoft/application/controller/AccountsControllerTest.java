@@ -83,11 +83,11 @@ class AccountsControllerTest {
 
     @Test
     public void givenValidAccountID_whenDeActive_thenExpectedStatusCode() throws Exception {
-        Optional<Account> account = Optional.ofNullable(Account.builder().accountNumber(123456789123L).status(Status.Active).build());
-        when(accountRepositoryMySQL.findByAccountNumber(anyString())).thenReturn(account);
+        Optional<Account> account = Optional.ofNullable(Account.builder().customerId("KHALEDKAR").accountNumber(123456789123L).status(Status.Active).build());
+        when(accountRepositoryMySQL.findByAccountNumberAndCustomerId(anyString(),anyString())).thenReturn(account);
         doNothing().when(deactivateAccountUseCase).execute(account.get());
 
-        mockMvc.perform(post("/api/v1/accounts/123456789123/deactivate")
+        mockMvc.perform(post("/api/v1/accounts/KHALEDKAR/123456789123/deactivate")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }

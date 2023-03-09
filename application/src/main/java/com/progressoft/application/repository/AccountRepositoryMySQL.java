@@ -34,8 +34,8 @@ public class AccountRepositoryMySQL implements AccountRepository {
     }
 
     @Override
-    public Optional<Account> findByAccountNumber(String id) {
-        return jpaAccountRepository.findByAccountNumber(Long.parseLong(id))
+    public Optional<Account> findByAccountNumberAndCustomerId(String id, String customerId) {
+        return jpaAccountRepository.findByAccountNumberAndCustomerId(Long.parseLong(id), customerId)
                 .map(mapper::toAccount);
     }
 }

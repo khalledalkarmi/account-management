@@ -72,7 +72,8 @@ class JpaAccountRepositoryTest {
         testEntityManager.persist(account2);
         testEntityManager.persist(account3);
         long accountNumber = account1.getAccountNumber();
-        Optional<AccountEntity> byAccountNumber = accountRepository.findByAccountNumber(accountNumber);
+        String  customerId = account1.getCustomerId();
+        Optional<AccountEntity> byAccountNumber = accountRepository.findByAccountNumberAndCustomerId(accountNumber,customerId);
         Assertions.assertThat(byAccountNumber.isPresent()).isTrue();
         Assertions.assertThat(byAccountNumber.get()).hasFieldOrPropertyWithValue("accountNumber", accountNumber);
     }
