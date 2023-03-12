@@ -42,7 +42,6 @@ class AccountsControllerTest {
     private DeactivateAccountUseCase deactivateAccountUseCase;
     @MockBean
     private InactivateAccountUseCase inactivateAccountUseCase;
-
     @Autowired
     MockMvc mockMvc;
 
