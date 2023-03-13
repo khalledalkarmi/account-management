@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="add find account by customer id and account number and remove find account by account number">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ErrorResponse.java" afterDir="false" />
+    <list default="true" id="d07616f7-cca6-4dc9-b6e8-4e35933125d5" name="Changes" comment="add response message">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_5_23,_5_29_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_5_23__5_29_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ControllerAdviser.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/exception/ControllerAdviser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/progressoft/application/controller/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +211,8 @@
       <workItem from="1678167382110" duration="1705000" />
       <workItem from="1678339790016" duration="346000" />
       <workItem from="1678599147357" duration="73000" />
-      <workItem from="1678599724131" duration="792000" />
+      <workItem from="1678599724131" duration="7704000" />
+      <workItem from="1678685350263" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="clean dead code">
       <created>1678267109477</created>
@@ -253,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678345731970</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add response message">
+      <created>1678600655195</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678600655195</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +286,8 @@
     <MESSAGE value="implement exceptionsHandler using ControllerAdviser" />
     <MESSAGE value="clean dead code" />
     <MESSAGE value="add find account by customer id and account number and remove find account by account number" />
-    <option name="LAST_COMMIT_MESSAGE" value="add find account by customer id and account number and remove find account by account number" />
+    <MESSAGE value="add response message" />
+    <option name="LAST_COMMIT_MESSAGE" value="add response message" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

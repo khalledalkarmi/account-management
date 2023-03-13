@@ -15,7 +15,6 @@ import usecases.DeactivateAccountUseCase;
 import usecases.InactivateAccountUseCase;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -46,46 +45,49 @@ public class AccountsController {
 
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<AccountResponse> getAllAccount() {
+        log.info("Get all account");
         return accountRepository.findAll().stream().map(accountMapper::toAccountResponse).collect(Collectors.toList());
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody AccountRequest accountRequest) {
-
         Account map = accountMapper.toAccount(accountRequest);
-        log.info("Received create account request {}", accountRequest);
+        log.info("Create account  Customer ID {}", accountRequest.getCustomerId());
         createAccountUseCase.execute(map);
     }
 
     @PostMapping("{customerId}/{accountNumber}/deactivate")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void deactivate(@PathVariable String accountNumber, @PathVariable String customerId) {
         //TODO A bug will occur if the account is null
 
         Account account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId)
                 .orElseThrow(UserNotFoundException::new);
-        log.info("Deactivate Account number {}", account);
+        log.info("Deactivate Account number {}, Customer ID {}", account.getAccountNumber(), account.getCustomerId());
         deactivateAccountUseCase.execute(account);
     }
 
     @PostMapping("{customerId}/{accountNumber}/activate")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void activate(@PathVariable String accountNumber, @PathVariable String customerId) {
         //TODO A bug will occur if the account is null
 
-        Optional<Account> account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId);
-        account.orElseThrow(UserNotFoundException::new);
-
-        log.info("Inactivate Account number {}", account.get().getAccountNumber());
-        inactivateAccountUseCase.execute(account.get());
+        Account account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId)
+                .orElseThrow(UserNotFoundException::new);
+        log.info("Deactivate Account number {}, Customer ID {}", account.getAccountNumber(), account.getCustomerId());
+        inactivateAccountUseCase.execute(account);
     }
 
     @ResponseBody
-    @GetMapping(value = "{customerId}/{accountNumber}",produces="application/json")
+    @GetMapping(value = "{customerId}/{accountNumber}", produces = "application/json")
+    @CrossOrigin(origins = "http://localhost:4200")
     public AccountResponse getAccountByCustomerIdAndAccountNumber(@PathVariable String accountNumber, @PathVariable String customerId) {
-        Optional<Account> account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId);
-        account.orElseThrow(UserNotFoundException::new);
-        return accountMapper.toAccountResponse(account.get());
+        Account account = accountRepository.findByAccountNumberAndCustomerId(accountNumber, customerId)
+                .orElseThrow(UserNotFoundException::new);
+        log.info("Get Account by Account number {} and Customer ID {}", account.getAccountNumber(), account.getCustomerId());
+        return accountMapper.toAccountResponse(account);
     }
-
 }
